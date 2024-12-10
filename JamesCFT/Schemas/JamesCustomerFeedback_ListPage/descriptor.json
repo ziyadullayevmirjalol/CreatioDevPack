@@ -1,0 +1,14 @@
+﻿{
+  "Descriptor": {
+    "UId": "14ebc347-514e-46e7-be61-b4f73012b2c2",
+    "Name": "JamesCustomerFeedback_ListPage",
+    "ModifiedOnUtc": "\/Date(1733467047000)\/",
+    "Parent": {
+      "UId": "3f1f3f38-a0a4-4549-b895-249fb08f554a",
+      "Name": "ListFreedomTemplate"
+    },
+    "ManagerName": "ClientUnitSchemaManager",
+    "Caption": "Customer Feedback list page",
+    "DependsOn": []
+  }
+}

@@ -1,0 +1,14 @@
+﻿{
+  "Descriptor": {
+    "UId": "575c042e-46c3-4fdb-9009-b0c1cface40a",
+    "Name": "JamesRequestManagement_Detail",
+    "ModifiedOnUtc": "\/Date(1732509445000)\/",
+    "Parent": {
+      "UId": "01eb38ee-668a-42f0-999d-c2534f979089",
+      "Name": "BaseGridDetailV2"
+    },
+    "ManagerName": "ClientUnitSchemaManager",
+    "Caption": "Request Management detail",
+    "DependsOn": []
+  }
+}

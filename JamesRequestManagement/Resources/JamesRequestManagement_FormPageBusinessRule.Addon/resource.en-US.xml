@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="en-US">
+	<Group Type="String">
+		<Items>
+			<Item Name="AddonConfig.Rules.f56547ba-4d5b-5a18-9f9f-b9172045efb8.Caption" Value="Hide elements: Expenses" />
+			<Item Name="Caption" Value="Request Management form page (Business rules)" />
+		</Items>
+	</Group>
+</Resources>

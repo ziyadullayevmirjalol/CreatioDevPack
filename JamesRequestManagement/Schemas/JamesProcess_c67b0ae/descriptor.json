@@ -1,0 +1,10 @@
+﻿{
+  "Descriptor": {
+    "UId": "ecdecebe-e2b0-4218-be9f-486afbcc09f9",
+    "Name": "JamesProcess_c67b0ae",
+    "ModifiedOnUtc": "\/Date(1733382291000)\/",
+    "ManagerName": "ProcessSchemaManager",
+    "Caption": "Request approval process",
+    "DependsOn": []
+  }
+}

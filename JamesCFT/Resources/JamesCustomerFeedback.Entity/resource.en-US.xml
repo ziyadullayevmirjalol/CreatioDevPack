@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="en-US">
+	<Group Type="String">
+		<Items>
+			<Item Name="Caption" Value="Customer Feedback" />
+			<Item Name="Columns.JamesCustomerName.Caption" Value="Customer Name" />
+			<Item Name="Columns.JamesDateRecieved.Caption" Value="Date recieved" />
+			<Item Name="Columns.JamesEmail.Caption" Value="Email" />
+			<Item Name="Columns.JamesFeedbackDescription.Caption" Value="Feedback Description" />
+			<Item Name="Columns.JamesFeedbackStatus.Caption" Value="Feedback Status" />
+			<Item Name="Columns.JamesFeedbackType.Caption" Value="Feedback Type" />
+			<Item Name="Columns.JamesName.Caption" Value="Name" />
+			<Item Name="Columns.JamesPhoneNumber.Caption" Value="Phone Number" />
+		</Items>
+	</Group>
+</Resources>

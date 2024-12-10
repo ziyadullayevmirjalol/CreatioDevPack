@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="en-US">
+	<Group Type="String">
+		<Items>
+			<Item Name="AddonConfig.Rules.59e54958-6bcc-2c7e-7e3d-955beb7859f4.Caption" Value="Make elements required: Description. When status is New" />
+			<Item Name="AddonConfig.Rules.81e21e8e-baca-9a0f-965f-223427546835.Caption" Value="Make elements read-only: Applicant, When status Completed" />
+			<Item Name="AddonConfig.Rules.a697fe07-6f1e-187d-3911-38c35533b9ef.Caption" Value="ChildRule-e126ece2-a071-a685-cb00-afb4723dd9cd-PopulateValue" />
+			<Item Name="AddonConfig.Rules.b49b91ae-fa4a-c2d2-84ff-8a9ae971f470.Caption" Value="Apply static filter: Owner" />
+			<Item Name="AddonConfig.Rules.e126ece2-a071-a685-cb00-afb4723dd9cd.Caption" Value="Apply filter: SubCategory" />
+			<Item Name="AddonConfig.Rules.eb45194b-d4ac-c074-2359-8e0c9d276071.Caption" Value="ChildRule-e126ece2-a071-a685-cb00-afb4723dd9cd-ClearValue" />
+			<Item Name="Caption" Value="JamesRequestManagement (Business rules)" />
+		</Items>
+	</Group>
+</Resources>

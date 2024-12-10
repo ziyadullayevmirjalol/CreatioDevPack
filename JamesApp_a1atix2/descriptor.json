@@ -1,0 +1,10 @@
+﻿{
+  "Descriptor": {
+    "UId": "44fc425d-8222-4f83-959e-a0c1ee55f611",
+    "Name": "JamesApp_a1atix2",
+    "Type": 1,
+    "Maintainer": "Customer",
+    "ProjectPath": "Files/JamesApp_a1atix2.csproj",
+    "DependsOn": []
+  }
+}

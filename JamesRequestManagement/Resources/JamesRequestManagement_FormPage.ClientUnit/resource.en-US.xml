@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="en-US">
+	<Group Type="String">
+		<Items>
+			<Item Name="Caption" Value="Request Management form page" />
+			<Item Name="LocalizableStrings.addRecord_3s04219_caption.Value" Value="Add new" />
+			<Item Name="LocalizableStrings.addRecord_rzind34_caption.Value" Value="Add new" />
+			<Item Name="LocalizableStrings.addRecord_t1gldx9_caption.Value" Value="Add new" />
+			<Item Name="LocalizableStrings.addRecord_u7fq6h4_caption.Value" Value="Add new" />
+			<Item Name="LocalizableStrings.addRecord_xe5ebk4_caption.Value" Value="Add new" />
+			<Item Name="LocalizableStrings.addRecord_zmqjgwo_caption.Value" Value="Add new" />
+			<Item Name="LocalizableStrings.Button_7jbhwtd_caption.Value" Value="Download report" />
+			<Item Name="LocalizableStrings.Button_abvhvx7_caption.Value" Value="Refresh" />
+			<Item Name="LocalizableStrings.Button_ks8einx_caption.Value" Value="Get feedback" />
+			<Item Name="LocalizableStrings.EmailInput_t07ink5_caption.Value" Value="Email address" />
+			<Item Name="LocalizableStrings.EmailInput_t07ink5_label.Value" Value="Email address" />
+			<Item Name="LocalizableStrings.ExpansionPanel_5af8dew_title.Value" Value="Expenses" />
+			<Item Name="LocalizableStrings.ExpansionPanel_ds1mfef_title.Value" Value="Approvals list" />
+			<Item Name="LocalizableStrings.ExpansionPanel_hjg43uz_title.Value" Value="Approvals list" />
+			<Item Name="LocalizableStrings.ExpansionPanel_n0h0oiy_title.Value" Value="Next steps" />
+			<Item Name="LocalizableStrings.GridDetailAddBtn_7uhe6mp_caption.Value" Value="New" />
+			<Item Name="LocalizableStrings.GridDetailExportDataBtn_pb28x06_caption.Value" Value="Export to Excel" />
+			<Item Name="LocalizableStrings.GridDetailImportDataBtn_7voektd_caption.Value" Value="Data import" />
+			<Item Name="LocalizableStrings.GridDetailRefreshBtn_2kxun8b_caption.Value" Value="Refresh" />
+			<Item Name="LocalizableStrings.GridDetailRefreshBtn_8hnuab7_caption.Value" Value="Refresh" />
+			<Item Name="LocalizableStrings.GridDetailRefreshBtn_aw9yi6n_caption.Value" Value="Refresh" />
+			<Item Name="LocalizableStrings.GridDetailSearchFilter_4f0j064_placeholder.Value" Value="Search" />
+			<Item Name="LocalizableStrings.GridDetailSettingsBtn_j6uuyft_caption.Value" Value="Actions" />
+			<Item Name="LocalizableStrings.Input_poaxln9_label.Value" Value="Please describe your product" />
+			<Item Name="LocalizableStrings.Input_poaxln9_placeholder.Value" Value="Please describe your request" />
+			<Item Name="LocalizableStrings.Input_poaxln9_tooltip.Value" Value="need to include description" />
+			<Item Name="LocalizableStrings.Input_wxedz2d_label.Value" Value="Bussiness Phone" />
+			<Item Name="LocalizableStrings.Label_4slnwak_caption.Value" Value="Next steps" />
+			<Item Name="LocalizableStrings.Label_hpj1o6b_caption.Value" Value="Label 2" />
+			<Item Name="LocalizableStrings.Label_icffddh_caption.Value" Value="Applicant Information" />
+			<Item Name="LocalizableStrings.Label_mfla8gf_caption.Value" Value="Label 2" />
+			<Item Name="LocalizableStrings.Label_nkri2lu_caption.Value" Value="Label 1" />
+			<Item Name="LocalizableStrings.Label_s9l4p9k_caption.Value" Value="Feedback information" />
+			<Item Name="LocalizableStrings.MenuItem_0omrpod_caption.Value" Value="Menu item" />
+			<Item Name="LocalizableStrings.SearchFilter_xpjc5xq_placeholder.Value" Value="Search" />
+			<Item Name="LocalizableStrings.SearchFilter_yvad5q3_placeholder.Value" Value="Search" />
+			<Item Name="LocalizableStrings.TabContainer_4mg8sk9_caption.Value" Value="Tab 2" />
+			<Item Name="LocalizableStrings.TabContainer_dowm6cj_caption.Value" Value="Expenses" />
+			<Item Name="LocalizableStrings.TabContainer_m4zcxsg_caption.Value" Value="Tab 2" />
+			<Item Name="LocalizableStrings.TabContainer_m5vr4gn_caption.Value" Value="Next steps" />
+			<Item Name="LocalizableStrings.TabContainer_va6m3kv_caption.Value" Value="Applicant Information" />
+			<Item Name="LocalizableStrings.TabContainer_wkur92g_caption.Value" Value="Tab 1" />
+		</Items>
+	</Group>
+</Resources>

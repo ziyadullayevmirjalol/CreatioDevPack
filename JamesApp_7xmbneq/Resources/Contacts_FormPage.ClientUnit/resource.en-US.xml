@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="en-US">
+	<Group Type="String">
+		<Items>
+			<Item Name="LocalizableStrings.addRecord_0d8td67_caption.Value" Value="Add new" />
+			<Item Name="LocalizableStrings.addRecord_2kkc2vg_caption.Value" Value="Add new" />
+			<Item Name="LocalizableStrings.addRecord_cjzgd0e_caption.Value" Value="Add new" />
+			<Item Name="LocalizableStrings.addRecord_d871xfp_caption.Value" Value="Add new" />
+			<Item Name="LocalizableStrings.addRecord_j18vog1_caption.Value" Value="Add new" />
+			<Item Name="LocalizableStrings.addRecord_lxl6b00_caption.Value" Value="Add new" />
+			<Item Name="LocalizableStrings.addRecord_mul04nj_caption.Value" Value="Add new" />
+			<Item Name="LocalizableStrings.addRecord_peavqxg_caption.Value" Value="Add new" />
+			<Item Name="LocalizableStrings.BulkEmailExpansionPanel_title.Value" Value="Bulk emails" />
+			<Item Name="LocalizableStrings.BulkEmailExportDataButton_caption.Value" Value="Export to Excel" />
+			<Item Name="LocalizableStrings.BulkEmailList_59f54b50.Value" Value="Sent date" />
+			<Item Name="LocalizableStrings.BulkEmailList_d96e6f8c.Value" Value="Type" />
+			<Item Name="LocalizableStrings.BulkEmailRefreshButton_caption.Value" Value="Refresh" />
+			<Item Name="LocalizableStrings.BulkEmailSearchFilter_placeholder.Value" Value="Search" />
+			<Item Name="LocalizableStrings.BulkEmailSettingsButton_caption.Value" Value="Actions" />
+			<Item Name="LocalizableStrings.Button_8lva7d5_caption.Value" Value="Create lead" />
+			<Item Name="LocalizableStrings.Button_srxtvyo_caption.Value" Value="Actions" />
+			<Item Name="LocalizableStrings.Button_uld37ti_caption.Value" Value="Refresh" />
+			<Item Name="LocalizableStrings.Channel_placeholder.Value" Value="Select channel" />
+			<Item Name="LocalizableStrings.ComboBox_268yz1f_placeholder.Value" Value="Select source" />
+			<Item Name="LocalizableStrings.ComboBox_3zub1m3_label.Value" Value="Select" />
+			<Item Name="LocalizableStrings.ComboBox_3zub1m3_placeholder.Value" Value="Select channel" />
+			<Item Name="LocalizableStrings.CustomerNeed_placeholder.Value" Value="Select customer need" />
+			<Item Name="LocalizableStrings.ExpansionPanel_1re2q9h_title.Value" Value="Submitted forms" />
+			<Item Name="LocalizableStrings.ExpansionPanel_rc58qym_title.Value" Value="Requests" />
+			<Item Name="LocalizableStrings.ExpansionPanel_vnm6t7m_title.Value" Value="Submitted forms" />
+			<Item Name="LocalizableStrings.ExpansionPanel_waeo36h_title.Value" Value="MQL/SQL" />
+			<Item Name="LocalizableStrings.ExpansionPanel_wnddm9x_title.Value" Value="MQL/SQL" />
+			<Item Name="LocalizableStrings.GridDetailAddBtn_2djs4b4_caption.Value" Value="New" />
+			<Item Name="LocalizableStrings.GridDetailAddBtn_8hnptnp_caption.Value" Value="New" />
+			<Item Name="LocalizableStrings.GridDetailAddBtn_9p9pxsz_caption.Value" Value="New" />
+			<Item Name="LocalizableStrings.GridDetailAddBtn_vuv87zn_caption.Value" Value="New" />
+			<Item Name="LocalizableStrings.GridDetailAddBtn_wzj2id8_caption.Value" Value="New" />
+			<Item Name="LocalizableStrings.GridDetailExportDataBtn_64g7yfo_caption.Value" Value="Export to Excel" />
+			<Item Name="LocalizableStrings.GridDetailExportDataBtn_iefo8tm_caption.Value" Value="Export to Excel" />
+			<Item Name="LocalizableStrings.GridDetailExportDataBtn_rls9rem_caption.Value" Value="Export to Excel" />
+			<Item Name="LocalizableStrings.GridDetailImportDataBtn_ay7t1nq_caption.Value" Value="Data import" />
+			<Item Name="LocalizableStrings.GridDetailImportDataBtn_czhqpwi_caption.Value" Value="Data import" />
+			<Item Name="LocalizableStrings.GridDetailImportDataBtn_f26nmj3_caption.Value" Value="Data import" />
+			<Item Name="LocalizableStrings.GridDetailImportDataBtn_lyt0jdm_caption.Value" Value="Data import" />
+			<Item Name="LocalizableStrings.GridDetailImportDataBtn_uknb3rf_caption.Value" Value="Data import" />
+			<Item Name="LocalizableStrings.GridDetailRefreshBtn_k5ozk6j_caption.Value" Value="Refresh" />
+			<Item Name="LocalizableStrings.GridDetailRefreshBtn_ypobw9p_caption.Value" Value="Refresh" />
+			<Item Name="LocalizableStrings.GridDetailRefreshBtn_zda9av2_caption.Value" Value="Refresh" />
+			<Item Name="LocalizableStrings.GridDetailSearchFilter_769sr56_placeholder.Value" Value="Search" />
+			<Item Name="LocalizableStrings.GridDetailSearchFilter_m3w49bc_placeholder.Value" Value="Search" />
+			<Item Name="LocalizableStrings.GridDetailSearchFilter_xaaj1yc_placeholder.Value" Value="Search" />
+			<Item Name="LocalizableStrings.GridDetailSettingsBtn_g626uxc_caption.Value" Value="Actions" />
+			<Item Name="LocalizableStrings.GridDetailSettingsBtn_icmycs2_caption.Value" Value="Actions" />
+			<Item Name="LocalizableStrings.GridDetailSettingsBtn_weylxjf_caption.Value" Value="Actions" />
+			<Item Name="LocalizableStrings.LeadConversionScore_tooltip.Value" Value="The score indicates the probability of creating a Lead associated with the Contact. The value is calculated with the ML model" />
+			<Item Name="LocalizableStrings.MenuItem_smyltlp_caption.Value" Value="Export to Excel" />
+			<Item Name="LocalizableStrings.MenuItem_tc2qcwu_caption.Value" Value="Data import" />
+			<Item Name="LocalizableStrings.OpportunityAddButton_caption.Value" Value="New" />
+			<Item Name="LocalizableStrings.OpportunityExpansionPanel_title.Value" Value="Opportunities" />
+			<Item Name="LocalizableStrings.OpportunityExportDataButton_caption.Value" Value="Export to Excel" />
+			<Item Name="LocalizableStrings.OpportunityImportDataButton_caption.Value" Value="Data import" />
+			<Item Name="LocalizableStrings.OpportunityRefreshButton_caption.Value" Value="Refresh" />
+			<Item Name="LocalizableStrings.OpportunitySearchFilter_placeholder.Value" Value="Search" />
+			<Item Name="LocalizableStrings.OpportunitySettingsButton_caption.Value" Value="Actions" />
+			<Item Name="LocalizableStrings.RecommendedProductExpansionPanel_title.Value" Value="Recommended products" />
+			<Item Name="LocalizableStrings.RecommendedProductExportDataButton_caption.Value" Value="Export to Excel" />
+			<Item Name="LocalizableStrings.RecommendedProductRefreshButton_caption.Value" Value="Refresh" />
+			<Item Name="LocalizableStrings.RecommendedProductSearchFilter_placeholder.Value" Value="Search" />
+			<Item Name="LocalizableStrings.RecommendedProductSettingsButton_caption.Value" Value="Actions" />
+			<Item Name="LocalizableStrings.RegisterMethod_placeholder.Value" Value="Select registration method" />
+			<Item Name="LocalizableStrings.SearchFilter_dyiu0p0_placeholder.Value" Value="Search" />
+			<Item Name="LocalizableStrings.ServiceAgreementsListDS_ServicePact.Value" Value="Service agreement" />
+			<Item Name="LocalizableStrings.Slider_nqxtwy2_label.Value" Value="e" />
+			<Item Name="LocalizableStrings.Source_placeholder.Value" Value="Select source" />
+			<Item Name="LocalizableStrings.TabContainer_8v18t68_caption.Value" Value="Requests" />
+		</Items>
+	</Group>
+</Resources>

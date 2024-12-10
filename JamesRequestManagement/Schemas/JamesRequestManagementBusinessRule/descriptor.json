@@ -1,0 +1,10 @@
+﻿{
+  "Descriptor": {
+    "UId": "60bfc3f1-fc83-48b1-a6ad-9da8b845a6f2",
+    "Name": "JamesRequestManagementBusinessRule",
+    "ModifiedOnUtc": "\/Date(1732688834000)\/",
+    "ManagerName": "AddonSchemaManager",
+    "Caption": "JamesRequestManagement (Business rules)",
+    "DependsOn": []
+  }
+}

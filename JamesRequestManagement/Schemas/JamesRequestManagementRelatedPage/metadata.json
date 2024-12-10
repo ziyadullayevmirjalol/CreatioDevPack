@@ -1,0 +1,44 @@
+﻿{
+  "MetaData": {
+    "Schema": {
+      "ManagerName": "AddonSchemaManager",
+      "UId": "693267de-3e0e-4eda-9e9d-60b46e36a613",
+      "A2": "JamesRequestManagementRelatedPage",
+      "A5": "6f71e54c-1960-40c9-94f6-073fd67699ab",
+      "B1": [],
+      "B2": [],
+      "B3": [],
+      "B6": "fd3638e7-51a7-42bc-a015-68f42f67ab32",
+      "B8": "0.0.0.0",
+      "AD1": "1e2125ad-e8ac-43b2-9834-3cc473473602",
+      "AD2": "EntitySchemaManager",
+      "AD3": "RelatedPage",
+      "AD5": "3a2d6f51-1bfc-4c17-aacb-b53de4866b7c",
+      "AD4": {
+  "Pages": [
+    {
+      "UId": "ccf2f5f0-43f6-4f4c-a432-d4dcd75cc1db",
+      "PageSchemaUId": "03b0710a-e417-4d56-b7b6-54f98ba86bb5",
+      "IsDefault": true,
+      "IsSspDefault": false,
+      "Actions": null,
+      "Role": null,
+      "TypeColumnValue": null
+    },
+    {
+      "UId": "5cb94f2d-03aa-cc9c-79b6-4de61bb36a9c",
+      "PageSchemaUId": "f40ac74a-d387-4a19-8b0f-9e8827f0ab04",
+      "IsDefault": false,
+      "IsSspDefault": false,
+      "Actions": {
+        "Add": true
+      },
+      "Role": null,
+      "TypeColumnValue": null
+    }
+  ],
+  "TypeColumnUId": null
+}
+    }
+  }
+}

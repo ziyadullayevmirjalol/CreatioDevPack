@@ -1,0 +1,15 @@
+﻿{
+  "Descriptor": {
+    "UId": "73e8d2ec-3587-440c-866b-7e79eb3fc74c",
+    "Name": "Contacts_FormPage",
+    "ModifiedOnUtc": "\/Date(1732783428000)\/",
+    "Parent": {
+      "UId": "e785a54d-7cc8-467f-9768-958ff8ad34d2",
+      "Name": "Contacts_FormPage"
+    },
+    "ExtendParent": true,
+    "ManagerName": "ClientUnitSchemaManager",
+    "Caption": "Contacts form page",
+    "DependsOn": []
+  }
+}

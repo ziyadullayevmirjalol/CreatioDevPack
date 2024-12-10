@@ -1,0 +1,10 @@
+﻿{
+  "Descriptor": {
+    "UId": "693267de-3e0e-4eda-9e9d-60b46e36a613",
+    "Name": "JamesRequestManagementRelatedPage",
+    "ModifiedOnUtc": "\/Date(1732692086000)\/",
+    "ManagerName": "AddonSchemaManager",
+    "Caption": "JamesRequestManagement (Page settings)",
+    "DependsOn": []
+  }
+}

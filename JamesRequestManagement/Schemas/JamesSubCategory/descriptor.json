@@ -1,0 +1,14 @@
+﻿{
+  "Descriptor": {
+    "UId": "9b14ae63-30c0-40f5-b8aa-f22305548a4e",
+    "Name": "JamesSubCategory",
+    "ModifiedOnUtc": "\/Date(1732688111000)\/",
+    "Parent": {
+      "UId": "11ab4bcb-9b23-4b6d-9c86-520fae925d75",
+      "Name": "BaseLookup"
+    },
+    "ManagerName": "EntitySchemaManager",
+    "Caption": "Request SubCategory",
+    "DependsOn": []
+  }
+}

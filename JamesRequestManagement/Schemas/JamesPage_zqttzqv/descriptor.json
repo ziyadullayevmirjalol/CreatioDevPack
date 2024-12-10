@@ -1,0 +1,14 @@
+﻿{
+  "Descriptor": {
+    "UId": "b1ae1ee8-7f9c-4603-85b3-1f6e7a09eeae",
+    "Name": "JamesPage_zqttzqv",
+    "ModifiedOnUtc": "\/Date(1732613217000)\/",
+    "Parent": {
+      "UId": "ecdcc8ff-272c-4957-9381-7d74ce17e140",
+      "Name": "BaseMiniPageTemplate"
+    },
+    "ManagerName": "ClientUnitSchemaManager",
+    "Caption": "Expenses form page",
+    "DependsOn": []
+  }
+}

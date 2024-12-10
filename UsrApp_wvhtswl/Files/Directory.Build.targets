@@ -1,0 +1,19 @@
+<Project>
+	<ItemGroup Condition="'$(PkgPath)' != ''">
+		<Compile Remove="$(PkgPath)/UsrApp_wvhtswl/Assemblies/**" />
+		<Compile Remove="$(PkgPath)/UsrApp_wvhtswl/Data/**" />
+		<Compile Remove="$(PkgPath)/UsrApp_wvhtswl/SqlScripts/**" />
+		<Compile Remove="$(PkgPath)/UsrApp_wvhtswl/Schemas\**" />
+		<Compile Remove="$(PkgPath)/UsrApp_wvhtswl/Resources/**" />
+		<EmbeddedResource Remove="$(PkgPath)/UsrApp_wvhtswl/Assemblies/**" />
+		<EmbeddedResource Remove="$(PkgPath)/UsrApp_wvhtswl/Data/**" />
+		<EmbeddedResource Remove="$(PkgPath)/UsrApp_wvhtswl/SqlScripts/**" />
+		<EmbeddedResource Remove="$(PkgPath)/UsrApp_wvhtswl/Schemas/**" />
+		<EmbeddedResource Remove="$(PkgPath)/UsrApp_wvhtswl/Resources/**" />
+		<None Remove="$(PkgPath)/UsrApp_wvhtswl/Assemblies/**" />
+		<None Remove="$(PkgPath)/UsrApp_wvhtswl/Data/**" />
+		<None Remove="$(PkgPath)/UsrApp_wvhtswl/SqlScripts/**" />
+		<None Remove="$(PkgPath)/UsrApp_wvhtswl/Schemas/**" />
+		<None Remove="$(PkgPath)/UsrApp_wvhtswl/Resources/**" />
+  </ItemGroup>
+</Project>

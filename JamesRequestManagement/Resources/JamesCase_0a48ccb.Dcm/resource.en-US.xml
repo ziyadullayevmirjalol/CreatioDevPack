@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="en-US">
+	<Group Type="String">
+		<Items>
+			<Item Name="Caption" Value="Request processing" />
+			<Item Name="NotificationCaption.Caption" Value="Process instance caption" />
+			<Item Name="NotificationCaption.DisplayValue" Value="[#Process name#]" />
+			<Item Name="Stages.Stage1.Caption" Value="New" />
+			<Item Name="Stages.Stage2.Caption" Value="Approval" />
+			<Item Name="Stages.Stage2.Elements.DcmElement1.Caption" Value="Change permissions" />
+			<Item Name="Stages.Stage2.Elements.DcmElement1.ProcessFlowElement.Parameters.AddRights.Caption" Value="List of rights to add" />
+			<Item Name="Stages.Stage2.Elements.DcmElement1.ProcessFlowElement.Parameters.AddRights.DisplayValue" Value="[{Id:&quot;fc8b5590-6ab3-4a6d-a13b-c4eaf049b1f2&quot;,ParameterName:&quot;Role1&quot;,Name:&quot;Main office managers.ccc0a67f-7a91-4220-a77c-62f991ed2303&quot;,CanRead:true,CanEdit:true,CanDelete:false,Source:&quot;3&quot;,Grantee:&quot;Role&quot;,Value:&quot;[#Lookup.84f44b9a-4bc3-4cbf-a1a8-cec02c1c029c.ccc0a67f-7a91-4220-a77c-62f991ed2303#]&quot;,OperationRightLevel:&quot;1&quot;},{Id:&quot;5230daa9-388f-473b-b91d-5e0258b19409&quot;,ParameterName:&quot;Role2&quot;,Name:&quot;Support team. Managers group.e23a927c-4c89-4f01-ac97-c32d448e3eb2&quot;,CanRead:true,CanEdit:true,CanDelete:false,Source:&quot;3&quot;,Grantee:&quot;Role&quot;,Value:&quot;[#Lookup.84f44b9a-4bc3-4cbf-a1a8-cec02c1c029c.e23a927c-4c89-4f01-ac97-c32d448e3eb2#]&quot;,OperationRightLevel:&quot;1&quot;}]" />
+			<Item Name="Stages.Stage2.Elements.DcmElement1.ProcessFlowElement.Parameters.ConsiderTimeInFilter.Caption" Value="Consider time in the filter" />
+			<Item Name="Stages.Stage2.Elements.DcmElement1.ProcessFlowElement.Parameters.ConsiderTimeInFilter.DisplayValue" Value="true" />
+			<Item Name="Stages.Stage2.Elements.DcmElement1.ProcessFlowElement.Parameters.DataSourceFilters.Caption" Value="Object meets condition" />
+			<Item Name="Stages.Stage2.Elements.DcmElement1.ProcessFlowElement.Parameters.DeleteRights.Caption" Value="List of rights to delete" />
+			<Item Name="Stages.Stage2.Elements.DcmElement1.ProcessFlowElement.Parameters.DeleteRights.DisplayValue" Value="[{Id:&quot;ae00676a-9443-48c4-ae36-3961224e83a9&quot;,Name:&quot;All roles and users&quot;,CanRead:false,CanEdit:true,CanDelete:true,Source:&quot;1&quot;,Grantee:&quot;AllRolesAndUsers&quot;,Value:&quot;&quot;}]" />
+			<Item Name="Stages.Stage2.Elements.DcmElement1.ProcessFlowElement.Parameters.EntitySchemaUId.Caption" Value="Object" />
+			<Item Name="Stages.Stage2.Elements.DcmElement1.ProcessFlowElement.Parameters.EntitySchemaUId.DisplayValue" Value="1e2125ad-e8ac-43b2-9834-3cc473473602" />
+			<Item Name="Stages.Stage2.Elements.DcmElement1.ProcessFlowElement.Parameters.Role1.Caption" Value="Role1" />
+			<Item Name="Stages.Stage2.Elements.DcmElement1.ProcessFlowElement.Parameters.Role1.DisplayValue" Value="[#Lookup.System administration object.Main office managers.ccc0a67f-7a91-4220-a77c-62f991ed2303#]" />
+			<Item Name="Stages.Stage2.Elements.DcmElement1.ProcessFlowElement.Parameters.Role2.Caption" Value="Role2" />
+			<Item Name="Stages.Stage2.Elements.DcmElement1.ProcessFlowElement.Parameters.Role2.DisplayValue" Value="[#Lookup.System administration object.Support team. Managers group.e23a927c-4c89-4f01-ac97-c32d448e3eb2#]" />
+			<Item Name="Stages.Stage3.Caption" Value="In process" />
+			<Item Name="Stages.Stage4.Caption" Value="Completed" />
+			<Item Name="Stages.Stage5.Caption" Value="Denied" />
+			<Item Name="Stages.Stage6.Caption" Value="Cancelled" />
+			<Item Name="Stages.Stage7.Caption" Value="Reopen" />
+		</Items>
+	</Group>
+</Resources>

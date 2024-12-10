@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="en-US">
+	<Group Type="String">
+		<Items>
+			<Item Name="Caption" Value="Request Management list page" />
+			<Item Name="LocalizableStrings.AddButton_caption.Value" Value="New" />
+			<Item Name="LocalizableStrings.Button_ry0ew0v_caption.Value" Value="Refresh" />
+			<Item Name="LocalizableStrings.GaugeWidget_1dr432f_template.Value" Value="{0}" />
+			<Item Name="LocalizableStrings.GaugeWidget_1dr432f_title.Value" Value="Completed requests" />
+			<Item Name="LocalizableStrings.IndicatorWidget_3jdjk71_template.Value" Value="{0} Requests" />
+			<Item Name="LocalizableStrings.IndicatorWidget_3jdjk71_title.Value" Value="Open requests" />
+			<Item Name="LocalizableStrings.LookupQuickFilterByTag_config_caption.Value" Value="Tag filter" />
+			<Item Name="LocalizableStrings.LookupQuickFilterByTag_config_hint.Value" Value="Select tag to filter" />
+			<Item Name="LocalizableStrings.PDS_JamesApplicantType.Value" Value="Applicant type" />
+			<Item Name="LocalizableStrings.PDS_JamesExpensesJamesRequestIdCount671e5a52.Value" Value="Number of expenses" />
+			<Item Name="LocalizableStrings.PDS_JamesExpensesJamesRequestJamesAmountSum2f685d57.Value" Value="Total expense" />
+			<Item Name="LocalizableStrings.QuickFilter_4uphj58_caption.Value" Value="Quick filter" />
+			<Item Name="LocalizableStrings.QuickFilter_4uphj58_config_caption.Value" Value="Applicant" />
+			<Item Name="LocalizableStrings.QuickFilter_jw3iqh0_caption.Value" Value="Quick filter" />
+			<Item Name="LocalizableStrings.QuickFilter_jw3iqh0_config_caption.Value" Value="Created on" />
+			<Item Name="LocalizableStrings.QuickFilter_n5o9als_caption.Value" Value="Quick filter" />
+			<Item Name="LocalizableStrings.QuickFilter_n5o9als_config_caption.Value" Value="Unresolved" />
+			<Item Name="LocalizableStrings.RefreshButton_caption.Value" Value="Refresh" />
+			<Item Name="LocalizableStrings.RefreshButtonCaption.Value" Value="Refresh" />
+			<Item Name="LocalizableStrings.SearchFilter_placeholder.Value" Value="Search record" />
+		</Items>
+	</Group>
+</Resources>

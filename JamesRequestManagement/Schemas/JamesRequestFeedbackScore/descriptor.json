@@ -1,0 +1,14 @@
+﻿{
+  "Descriptor": {
+    "UId": "2b9a7782-38b5-4c3b-88a3-c145f4ffd487",
+    "Name": "JamesRequestFeedbackScore",
+    "ModifiedOnUtc": "\/Date(1733390814000)\/",
+    "Parent": {
+      "UId": "11ab4bcb-9b23-4b6d-9c86-520fae925d75",
+      "Name": "BaseLookup"
+    },
+    "ManagerName": "EntitySchemaManager",
+    "Caption": "Request feedback score",
+    "DependsOn": []
+  }
+}

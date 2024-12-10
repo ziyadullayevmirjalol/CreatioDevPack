@@ -1,0 +1,10 @@
+﻿{
+  "Descriptor": {
+    "UId": "11eeb244-7dd4-4301-86c2-752c9a320071",
+    "Name": "UsrApp_wvhtswl",
+    "Type": 1,
+    "Maintainer": "Customer",
+    "ProjectPath": "Files/UsrApp_wvhtswl.csproj",
+    "DependsOn": []
+  }
+}

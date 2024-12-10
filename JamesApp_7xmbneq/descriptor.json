@@ -1,0 +1,22 @@
+﻿{
+  "Descriptor": {
+    "UId": "8e0fd729-bc28-4d34-bab5-11a69f85d0b2",
+    "Name": "JamesApp_7xmbneq",
+    "Type": 1,
+    "Maintainer": "Customer",
+    "ProjectPath": "Files/JamesApp_7xmbneq.csproj",
+    "DependsOn": [
+      {
+        "UId": "2ecba2bd-b810-47a5-a1b1-08c888529d6c",
+        "PackageVersion": "7.8.0",
+        "Name": "CrtCustomer360App",
+        "Type": 1
+      },
+      {
+        "UId": "fd3638e7-51a7-42bc-a015-68f42f67ab32",
+        "Name": "JamesRequestManagement",
+        "Type": 1
+      }
+    ]
+  }
+}

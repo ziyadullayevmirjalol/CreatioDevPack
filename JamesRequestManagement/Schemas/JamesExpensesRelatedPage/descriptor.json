@@ -1,0 +1,10 @@
+﻿{
+  "Descriptor": {
+    "UId": "e7416116-6faf-47ca-b29f-0c655f7d75d7",
+    "Name": "JamesExpensesRelatedPage",
+    "ModifiedOnUtc": "\/Date(1732602925000)\/",
+    "ManagerName": "AddonSchemaManager",
+    "Caption": "Expenses (Page settings)",
+    "DependsOn": []
+  }
+}

@@ -1,0 +1,14 @@
+﻿{
+  "Descriptor": {
+    "UId": "baf97e55-e748-43d6-b1d0-c2ec52f3f8b1",
+    "Name": "JamesCase_2ae6ba3JamesRequestManagement2",
+    "ModifiedOnUtc": "\/Date(1733204121000)\/",
+    "Parent": {
+      "UId": "c70613d6-09f7-4148-a586-6dde4182ac8c",
+      "Name": "JamesCase_2ae6ba3"
+    },
+    "ManagerName": "DcmSchemaManager",
+    "Caption": "Request processing",
+    "DependsOn": []
+  }
+}

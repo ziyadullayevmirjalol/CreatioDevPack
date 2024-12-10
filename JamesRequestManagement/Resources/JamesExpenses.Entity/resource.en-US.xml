@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="en-US">
+	<Group Type="String">
+		<Items>
+			<Item Name="Caption" Value="Expenses" />
+			<Item Name="Columns.JamesAmount.Caption" Value="Amount" />
+			<Item Name="Columns.JamesComment.Caption" Value="Comment" />
+			<Item Name="Columns.JamesImported.Caption" Value="Imported" />
+			<Item Name="Columns.JamesRequest.Caption" Value="Request" />
+			<Item Name="Columns.JamesType.Caption" Value="Type" />
+		</Items>
+	</Group>
+</Resources>

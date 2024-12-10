@@ -1,0 +1,14 @@
+﻿{
+  "Descriptor": {
+    "UId": "03b0710a-e417-4d56-b7b6-54f98ba86bb5",
+    "Name": "JamesRequestManagement_FormPage",
+    "ModifiedOnUtc": "\/Date(1733406523000)\/",
+    "Parent": {
+      "UId": "3b2e117f-8c6b-4ca5-80a2-7ebb497cddf9",
+      "Name": "PageWithTabsFreedomTemplate"
+    },
+    "ManagerName": "ClientUnitSchemaManager",
+    "Caption": "Request Management form page",
+    "DependsOn": []
+  }
+}

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="en-US">
+	<Group Type="String">
+		<Items>
+			<Item Name="Caption" Value="JamesRequestManagement" />
+			<Item Name="Columns.JamesApplicant.Caption" Value="Applicant" />
+			<Item Name="Columns.JamesCategory.Caption" Value="Category" />
+			<Item Name="Columns.JamesColumn9.Caption" Value="Feedback score" />
+			<Item Name="Columns.JamesComment.Caption" Value="Comment" />
+			<Item Name="Columns.JamesDescription.Caption" Value="Description" />
+			<Item Name="Columns.JamesExpenseTotal.Caption" Value="Expense (tolal)" />
+			<Item Name="Columns.JamesName.Caption" Value="Number" />
+			<Item Name="Columns.JamesOwner.Caption" Value="Owner" />
+			<Item Name="Columns.JamesStatus.Caption" Value="Status" />
+			<Item Name="Columns.JamesSubCategory.Caption" Value="SubCategory" />
+		</Items>
+	</Group>
+</Resources>

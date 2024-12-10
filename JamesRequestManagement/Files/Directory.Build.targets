@@ -1,0 +1,19 @@
+<Project>
+	<ItemGroup Condition="'$(PkgPath)' != ''">
+		<Compile Remove="$(PkgPath)/JamesRequestManagement/Assemblies/**" />
+		<Compile Remove="$(PkgPath)/JamesRequestManagement/Data/**" />
+		<Compile Remove="$(PkgPath)/JamesRequestManagement/SqlScripts/**" />
+		<Compile Remove="$(PkgPath)/JamesRequestManagement/Schemas\**" />
+		<Compile Remove="$(PkgPath)/JamesRequestManagement/Resources/**" />
+		<EmbeddedResource Remove="$(PkgPath)/JamesRequestManagement/Assemblies/**" />
+		<EmbeddedResource Remove="$(PkgPath)/JamesRequestManagement/Data/**" />
+		<EmbeddedResource Remove="$(PkgPath)/JamesRequestManagement/SqlScripts/**" />
+		<EmbeddedResource Remove="$(PkgPath)/JamesRequestManagement/Schemas/**" />
+		<EmbeddedResource Remove="$(PkgPath)/JamesRequestManagement/Resources/**" />
+		<None Remove="$(PkgPath)/JamesRequestManagement/Assemblies/**" />
+		<None Remove="$(PkgPath)/JamesRequestManagement/Data/**" />
+		<None Remove="$(PkgPath)/JamesRequestManagement/SqlScripts/**" />
+		<None Remove="$(PkgPath)/JamesRequestManagement/Schemas/**" />
+		<None Remove="$(PkgPath)/JamesRequestManagement/Resources/**" />
+  </ItemGroup>
+</Project>
