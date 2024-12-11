@@ -3,9 +3,6 @@
 	<Group Type="String">
 		<Items>
 			<Item Name="Caption" Value="Realty Freedom UI list page" />
-			<Item Name="LocalizableStrings.ActionsButton_caption.Value" Value="Дії" />
-			<Item Name="LocalizableStrings.MenuItem_8m672s8_caption.Value" Value="Експорт в Excel" />
-			<Item Name="LocalizableStrings.MenuItem_sy8z6b6_caption.Value" Value="Імпорт даних" />
 			<Item Name="LocalizableStrings.RefreshButtonCaption.Value" Value="Refresh" />
 		</Items>
 	</Group>
