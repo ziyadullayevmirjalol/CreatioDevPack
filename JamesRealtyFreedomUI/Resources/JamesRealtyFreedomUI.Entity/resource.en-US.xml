@@ -3,7 +3,15 @@
 	<Group Type="String">
 		<Items>
 			<Item Name="Caption" Value="Realty Freedom UI" />
+			<Item Name="Columns.JamesArea.Caption" Value="Area, sq ft" />
+			<Item Name="Columns.JamesComment.Caption" Value="Comment" />
+			<Item Name="Columns.JamesManager.Caption" Value="Manager" />
 			<Item Name="Columns.JamesName.Caption" Value="Name" />
+			<Item Name="Columns.JamesNumber.Caption" Value="Number" />
+			<Item Name="Columns.JamesOfferType.Caption" Value="Offer Type" />
+			<Item Name="Columns.JamesPrice.Caption" Value="Currency" />
+			<Item Name="Columns.JamesPriceUSD.Caption" Value="Price, USD" />
+			<Item Name="Columns.JamesType.Caption" Value="Type" />
 		</Items>
 	</Group>
 </Resources>

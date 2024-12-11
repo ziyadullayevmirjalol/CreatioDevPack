@@ -1,7 +1,7 @@
 = MetaData.Schema.UId "c8447774-8aa8-43c7-ac56-1f61d9ecf68e"
 = MetaData.Schema.A2 "JamesRealtyFreedomUI"
 = MetaData.Schema.A5 "6f71e54c-1960-40c9-94f6-073fd67699ab"
-= MetaData.Schema.B6 "5530927f-22ea-e7c9-4ccf-506d3a6c2ed2"
+= MetaData.Schema.B6 "8ad13a08-157c-4845-a26f-8ba0f9457cf0"
 = MetaData.Schema.EG1.UId "35ed072d-b64b-48d9-a321-be185b27409b"
 = MetaData.Schema.EG1.A2 "JamesRealtyFreedomUIEventsProcess"
 = MetaData.Schema.EG1.A5 "6f71e54c-1960-40c9-94f6-073fd67699ab"
@@ -13,7 +13,6 @@
 = MetaData.Schema.EG1.BK37.A4 "bb4d6607-026b-4b27-b640-8f5c77c1e89d"
 = MetaData.Schema.EG1.BK3 []
 = MetaData.Schema.EG1.BK4 []
-+ MetaData.Schema.EG1.Labels []
 = MetaData.Schema.D8 "1bab9dcf-17d5-49f8-9536-8e0064f1dce0"
 + MetaData.Schema.D29 "null"
 + MetaData.Schema.D30 "null"
@@ -23,14 +22,108 @@
   "UId": "b0e94e03-beef-47e2-b36b-b8d7fb4ee2eb",
   "A2": "JamesName",
   "A3": "c8447774-8aa8-43c7-ac56-1f61d9ecf68e",
-  "A4": "c8447774-8aa8-43c7-ac56-1f61d9ecf68e", 
+  "A4": "c8447774-8aa8-43c7-ac56-1f61d9ecf68e",
   "A5": "6f71e54c-1960-40c9-94f6-073fd67699ab",
   "S2": "ddb3a1ee-07e8-4d62-b7a9-d0e618b00fbd",
-  "E2": 1,
-  "E5": false
+  "E2": 1
 }
-~ MetaData.Schema.D2 ["ae0e45ca-c495-4fe7-a39d-3ab7278e1617","e80190a5-03b2-4095-90f7-a193a960adee","ebf6bb93-8aa6-4a01-900d-c6ea67affe21","9928edec-4272-425a-93bb-48743fee4b04","3015559e-cbc6-406a-88af-07f7930be832","3fabd836-6a53-4d8d-9069-6df88d9dae1e","b0e94e03-beef-47e2-b36b-b8d7fb4ee2eb"]
++ MetaData.Schema.D2 {
+  "UId": "b66afd45-2b17-ebc4-0983-941aa26f32da",
+  "A2": "JamesPriceUSD",
+  "A3": "c8447774-8aa8-43c7-ac56-1f61d9ecf68e",
+  "A4": "c8447774-8aa8-43c7-ac56-1f61d9ecf68e",
+  "A5": "2261409a-5d89-42e2-9e0b-664ad67583cd",
+  "S2": "07ba84ce-0bf7-44b4-9f2c-7b15032eb98c",
+  "E2": 1
+}
++ MetaData.Schema.D2 {
+  "UId": "32cbdc35-c22a-4232-9262-5ca78e4cae61",
+  "A2": "JamesNumber",
+  "A3": "c8447774-8aa8-43c7-ac56-1f61d9ecf68e",
+  "A4": "c8447774-8aa8-43c7-ac56-1f61d9ecf68e",
+  "A5": "2261409a-5d89-42e2-9e0b-664ad67583cd",
+  "S2": "325a73b8-0f47-44a0-8412-7606f78003ac",
+  "E5": false,
+  "E12": {
+    "FB1": 4,
+    "FB4": "R-",
+    "FB5": 3
+  }
+}
++ MetaData.Schema.D2 {
+  "UId": "b6a5132a-9c3b-21bd-e26f-f7fcfb8a24dd",
+  "A2": "JamesManager",
+  "A3": "c8447774-8aa8-43c7-ac56-1f61d9ecf68e",
+  "A4": "c8447774-8aa8-43c7-ac56-1f61d9ecf68e",
+  "A5": "2261409a-5d89-42e2-9e0b-664ad67583cd",
+  "S2": "b295071f-7ea9-4e62-8d1a-919bf3732ff2",
+  "S4": "16be3651-8fe2-4159-8dd0-a803d4683dd3",
+  "E6": true,
+  "E20": true,
+  "E17": "JamesManagerId",
+  "E18": "JamesManagerName"
+}
++ MetaData.Schema.D2 {
+  "UId": "453c29de-1fa3-bdf2-4fa7-52255f7aa8e4",
+  "A2": "JamesComment",
+  "A3": "c8447774-8aa8-43c7-ac56-1f61d9ecf68e",
+  "A4": "c8447774-8aa8-43c7-ac56-1f61d9ecf68e",
+  "A5": "2261409a-5d89-42e2-9e0b-664ad67583cd",
+  "S2": "ddb3a1ee-07e8-4d62-b7a9-d0e618b00fbd",
+  "E25": true
+}
++ MetaData.Schema.D2 {
+  "UId": "8c26fcde-ce9b-02fa-acde-7dbaca4dd5cd",
+  "A2": "JamesOfferType",
+  "A3": "c8447774-8aa8-43c7-ac56-1f61d9ecf68e",
+  "A4": "c8447774-8aa8-43c7-ac56-1f61d9ecf68e",
+  "A5": "2261409a-5d89-42e2-9e0b-664ad67583cd",
+  "S2": "b295071f-7ea9-4e62-8d1a-919bf3732ff2",
+  "S4": "4e14d498-540c-4a45-b6fd-042145a4072b",
+  "E6": true,
+  "E20": true,
+  "E17": "JamesOfferTypeId",
+  "E18": "JamesOfferTypeName"
+}
++ MetaData.Schema.D2 {
+  "UId": "589a68a9-e815-f660-1048-ec2222dc83be",
+  "A2": "JamesType",
+  "A3": "c8447774-8aa8-43c7-ac56-1f61d9ecf68e",
+  "A4": "c8447774-8aa8-43c7-ac56-1f61d9ecf68e",
+  "A5": "2261409a-5d89-42e2-9e0b-664ad67583cd",
+  "S2": "b295071f-7ea9-4e62-8d1a-919bf3732ff2",
+  "S4": "ac2be20c-6ddd-451a-9e07-c10bf1934117",
+  "E6": true,
+  "E20": true,
+  "E17": "JamesTypeId",
+  "E18": "JamesTypeName"
+}
++ MetaData.Schema.D2 {
+  "UId": "36cf1ddd-15c5-4cf6-d2df-34b155dc9e75",
+  "A2": "JamesPrice",
+  "A3": "c8447774-8aa8-43c7-ac56-1f61d9ecf68e",
+  "A4": "c8447774-8aa8-43c7-ac56-1f61d9ecf68e",
+  "A5": "2261409a-5d89-42e2-9e0b-664ad67583cd",
+  "S2": "b295071f-7ea9-4e62-8d1a-919bf3732ff2",
+  "S4": "2d36aca6-5b8c-4122-9648-baf3b7f8256d",
+  "E2": 1,
+  "E6": true,
+  "E20": true,
+  "E17": "JamesPriceId",
+  "E18": "JamesPriceName"
+}
++ MetaData.Schema.D2 {
+  "UId": "ee07fee8-6b70-d959-8dfa-b8a4645016d1",
+  "A2": "JamesArea",
+  "A3": "c8447774-8aa8-43c7-ac56-1f61d9ecf68e",
+  "A4": "c8447774-8aa8-43c7-ac56-1f61d9ecf68e",
+  "A5": "2261409a-5d89-42e2-9e0b-664ad67583cd",
+  "S2": "07ba84ce-0bf7-44b4-9f2c-7b15032eb98c"
+}
+~ MetaData.Schema.D2 ["ae0e45ca-c495-4fe7-a39d-3ab7278e1617","e80190a5-03b2-4095-90f7-a193a960adee","ebf6bb93-8aa6-4a01-900d-c6ea67affe21","9928edec-4272-425a-93bb-48743fee4b04","3015559e-cbc6-406a-88af-07f7930be832","3fabd836-6a53-4d8d-9069-6df88d9dae1e","b0e94e03-beef-47e2-b36b-b8d7fb4ee2eb","b66afd45-2b17-ebc4-0983-941aa26f32da","32cbdc35-c22a-4232-9262-5ca78e4cae61","b6a5132a-9c3b-21bd-e26f-f7fcfb8a24dd","453c29de-1fa3-bdf2-4fa7-52255f7aa8e4","8c26fcde-ce9b-02fa-acde-7dbaca4dd5cd","589a68a9-e815-f660-1048-ec2222dc83be","36cf1ddd-15c5-4cf6-d2df-34b155dc9e75","ee07fee8-6b70-d959-8dfa-b8a4645016d1"]
 = MetaData.Schema.D20.A2 "JamesRealtyFreedomUIEvents"
+= MetaData.Schema.D36.A3 "c8447774-8aa8-43c7-ac56-1f61d9ecf68e"
+= MetaData.Schema.D36.BS1 false
 - MetaData.Schema.EG1.B6
 - MetaData.Schema.EG1.BK29
 - MetaData.Schema.EG1.BK30
