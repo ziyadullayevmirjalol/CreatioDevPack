@@ -1,0 +1,28 @@
+{
+  "MetaData": {
+    "Schema": {
+      "ManagerName": "AddonSchemaManager",
+      "UId": "7903bc17-e307-470e-bc7f-e2f3d8d68988",
+      "A2": "JamesRealtyFreedomUIRelatedPage",
+      "A5": "6f71e54c-1960-40c9-94f6-073fd67699ab",
+      "B1": [],
+      "B2": [],
+      "B3": [],
+      "B6": "5530927f-22ea-e7c9-4ccf-506d3a6c2ed2",
+      "B8": "0.0.0.0",
+      "AD1": "c8447774-8aa8-43c7-ac56-1f61d9ecf68e",
+      "AD2": "EntitySchemaManager",
+      "AD3": "RelatedPage",
+      "AD5": "3a2d6f51-1bfc-4c17-aacb-b53de4866b7c",
+      "AD4": {
+        "Pages": [
+          {
+            "UId": "a58cd521-2ebf-47d0-8ef5-7555b3ae4069",
+            "PageSchemaUId": "df93d8c9-a1ab-406c-9088-9359f21b206b",
+            "IsDefault": true
+          }
+        ]
+      }
+    }
+  }
+}
