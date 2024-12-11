@@ -86,6 +86,10 @@
   "S4": "4e14d498-540c-4a45-b6fd-042145a4072b",
   "E6": true,
   "E20": true,
+  "E12": {
+    "FB1": 1,
+    "FB2": "4315a7da-a261-484c-8c43-c97067770489"
+  },
   "E17": "JamesOfferTypeId",
   "E18": "JamesOfferTypeName"
 }
@@ -99,6 +103,10 @@
   "S4": "ac2be20c-6ddd-451a-9e07-c10bf1934117",
   "E6": true,
   "E20": true,
+  "E12": {
+    "FB1": 1,
+    "FB2": "82e5014b-75ae-4f5d-af91-3dfe32da10b7"
+  },
   "E17": "JamesTypeId",
   "E18": "JamesTypeName"
 }
