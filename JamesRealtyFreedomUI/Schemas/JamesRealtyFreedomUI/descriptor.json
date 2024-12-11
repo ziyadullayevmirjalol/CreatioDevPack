@@ -8,6 +8,7 @@
       "Name": "BaseEntity"
     },
     "ManagerName": "EntitySchemaManager",
-    "Caption": "Realty Freedom UI"
+    "Caption": "Realty Freedom UI",
+    "DependsOn": []
   }
 }

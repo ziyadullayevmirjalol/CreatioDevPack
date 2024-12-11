@@ -8,6 +8,7 @@
       "Name": "BaseLookup"
     },
     "ManagerName": "EntitySchemaManager",
-    "Caption": "Realty Offer Type (Freedom UI)"
+    "Caption": "Realty Offer Type (Freedom UI)",
+    "DependsOn": []
   }
 }

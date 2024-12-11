@@ -8,6 +8,7 @@
       "Name": "BaseLookup"
     },
     "ManagerName": "EntitySchemaManager",
-    "Caption": "RealtyType (Freedom UI)"
+    "Caption": "RealtyType (Freedom UI)",
+    "DependsOn": []
   }
 }
