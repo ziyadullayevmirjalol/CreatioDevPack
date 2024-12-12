@@ -407,11 +407,29 @@ define("JamesRealtyFreedomUI_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 					"NumberAttribute_98z17ve": {
 						"modelConfig": {
 							"path": "PDS.JamesPriceUSD"
+						},
+						"validators": {
+							"MySuperValidator": {
+								"type": "usr.DGValidator",
+								"params": {
+									"minValue": 50,
+									"message": "#ResourceString(PriceCannotBeLess)#",
+								}
+							}
 						}
 					},
 					"NumberAttribute_8x6isdg": {
 						"modelConfig": {
 							"path": "PDS.JamesArea"
+						},
+						"validators": {
+							"MySuperValidator": {
+								"type": "usr.DGValidator",
+								"params": {
+									"minValue": 50,
+									"message": "#ResourceString(PriceCannotBeLess)#",
+								}
+							}
 						}
 					},
 					"LookupAttribute_waj6v25": {
@@ -508,6 +526,14 @@ define("JamesRealtyFreedomUI_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 					var price = await request.$context.NumberAttribute_98z17ve;
 					this.console.log("Price = " + price);
 					request.$context.NumberAttribute_8x6isdg = price * 0.2;
+					
+					debugger;
+					var realtyTypeObject = await request.$context.LookupAttribute_0vtfnzj;
+					if (realtyTypeObject) {
+						var typeName = realtyTypeObject.displayValue;
+						var typeId = realtyTypeObject.value;
+						this.console.log("type id: " + typeId + ", type name: " + typeName);
+					}
 					/* Call the next handler if it exists and return its result. */
 					return next?.handle(request);
 				}
@@ -531,6 +557,38 @@ define("JamesRealtyFreedomUI_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 
 		]/**SCHEMA_HANDLERS*/,
 		converters: /**SCHEMA_CONVERTERS*/{}/**SCHEMA_CONVERTERS*/,
-		validators: /**SCHEMA_VALIDATORS*/{}/**SCHEMA_VALIDATORS*/
+		validators: /**SCHEMA_VALIDATORS*/{
+			/* The validator type must contain a vendor prefix.
+			Format the validator type in PascalCase. */
+			"usr.DGValidator": {
+				validator: function (config) {
+					return function (control) {
+						let value = control.value;
+						let minValue = config.minValue;
+						let valueIsCorrect = value >= minValue;
+						var result;
+						if (valueIsCorrect) {
+							result = null;
+						} else {
+							result = {
+								"usr.DGValidator": { 
+									message: config.message
+								}
+							};
+						}
+						return result;
+					};
+				},
+				params: [
+					{
+						name: "minValue"
+					},
+					{
+						name: "message"
+					}
+				],
+				async: false
+			}
+		}/**SCHEMA_VALIDATORS*/
 	};
 });
