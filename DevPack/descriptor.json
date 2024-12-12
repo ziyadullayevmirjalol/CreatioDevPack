@@ -3,14 +3,15 @@
     "UId": "3358392f-220c-c61c-bd1e-4b0bc75dbe3f",
     "Name": "DevPack",
     "Type": 1,
-    "ModifiedOnUtc": "\/Date(1733807633000)\/",
+    "ModifiedOnUtc": "\/Date(1733978058000)\/",
     "Maintainer": "Customer",
     "ProjectPath": "Files/DevPack.csproj",
     "DependsOn": [
       {
-        "UId": "3f299622-2079-4a62-ba18-6d32c1d0d6af",
+        "UId": "012e2e14-082b-ac2b-da5a-2fc87bad41d4",
         "PackageVersion": "7.8.0",
-        "Name": "SalesEnterprise_Marketing_ServiceEnt"
+        "Name": "CrtCore",
+        "Type": 1
       }
     ]
   }

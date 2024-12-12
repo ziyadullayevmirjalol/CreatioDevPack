@@ -1,7 +1,39 @@
-/* jshint esversion: 11 */
 define("JamesRealtyFreedomUI_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEMA_ARGS*/()/**SCHEMA_ARGS*/ {
 	return {
 		viewConfigDiff: /**SCHEMA_VIEW_CONFIG_DIFF*/[
+			{
+				"operation": "merge",
+				"name": "SideAreaProfileContainer",
+				"values": {
+					"columns": [
+						"minmax(64px, 1fr)"
+					],
+					"gap": {
+						"columnGap": "large",
+						"rowGap": "none"
+					},
+					"visible": true
+				}
+			},
+			{
+				"operation": "merge",
+				"name": "GeneralInfoTabContainer",
+				"values": {
+					"gap": {
+						"columnGap": "large",
+						"rowGap": "none"
+					},
+					"visible": true,
+					"color": "transparent",
+					"borderRadius": "none",
+					"padding": {
+						"top": "none",
+						"right": "none",
+						"bottom": "none",
+						"left": "none"
+					}
+				}
+			},
 			{
 				"operation": "merge",
 				"name": "CardToggleTabPanel",
@@ -156,6 +188,25 @@ define("JamesRealtyFreedomUI_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 			},
 			{
 				"operation": "insert",
+				"name": "JamesCommission",
+				"values": {
+					"layoutConfig": {
+						"column": 1,
+						"row": 5,
+						"colSpan": 1,
+						"rowSpan": 1
+					},
+					"type": "crt.NumberInput",
+					"label": "$Resources.Strings.NumberAttribute_9k54d46",
+					"labelPosition": "auto",
+					"control": "$NumberAttribute_9k54d46"
+				},
+				"parentName": "SideAreaProfileContainer",
+				"propertyName": "items",
+				"index": 4
+			},
+			{
+				"operation": "insert",
 				"name": "ComboBox_d2jvnkc",
 				"values": {
 					"layoutConfig": {
@@ -246,7 +297,10 @@ define("JamesRealtyFreedomUI_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 					"label": "$Resources.Strings.StringAttribute_4j1i65t",
 					"labelPosition": "auto",
 					"control": "$StringAttribute_4j1i65t",
-					"multiline": false
+					"multiline": false,
+					"visible": false,
+					"placeholder": "",
+					"tooltip": ""
 				},
 				"parentName": "GeneralInfoTabContainer",
 				"propertyName": "items",
@@ -293,6 +347,28 @@ define("JamesRealtyFreedomUI_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 			},
 			{
 				"operation": "insert",
+				"name": "NumberInput_uu9xcd0",
+				"values": {
+					"layoutConfig": {
+						"column": 1,
+						"row": 3,
+						"colSpan": 1,
+						"rowSpan": 1
+					},
+					"type": "crt.NumberInput",
+					"label": "$Resources.Strings.JamesOfferTypeJamesCommissonPercent",
+					"control": "$JamesOfferTypeJamesCommissonPercent",
+					"readonly": true,
+					"placeholder": "",
+					"labelPosition": "auto",
+					"tooltip": ""
+				},
+				"parentName": "GeneralInfoTabContainer",
+				"propertyName": "items",
+				"index": 4
+			},
+			{
+				"operation": "insert",
 				"name": "JamesNumber",
 				"values": {
 					"layoutConfig": {
@@ -313,7 +389,7 @@ define("JamesRealtyFreedomUI_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 				},
 				"parentName": "GeneralInfoTabContainer",
 				"propertyName": "items",
-				"index": 4
+				"index": 5
 			}
 		]/**SCHEMA_VIEW_CONFIG_DIFF*/,
 		viewModelConfigDiff: /**SCHEMA_VIEW_MODEL_CONFIG_DIFF*/[
@@ -367,6 +443,16 @@ define("JamesRealtyFreedomUI_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 						"modelConfig": {
 							"path": "PDS.JamesNumber"
 						}
+					},
+					"NumberAttribute_9k54d46": {
+						"modelConfig": {
+							"path": "PDS.JamesCommission"
+						}
+					},
+					"JamesOfferTypeJamesCommissonPercent": {
+						"modelConfig": {
+							"path": "PDS.JamesOfferTypeJamesCommissonPercent"
+						}
 					}
 				}
 			},
@@ -399,7 +485,13 @@ define("JamesRealtyFreedomUI_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 					"PDS": {
 						"type": "crt.EntityDataSource",
 						"config": {
-							"entitySchemaName": "JamesRealtyFreedomUI"
+							"entitySchemaName": "JamesRealtyFreedomUI",
+							"attributes": {
+								"JamesOfferTypeJamesCommissonPercent": {
+									"path": "JamesOfferType.JamesCommissonPercent",
+									"type": "ForwardReference"
+								}
+							}
 						},
 						"scope": "page"
 					}

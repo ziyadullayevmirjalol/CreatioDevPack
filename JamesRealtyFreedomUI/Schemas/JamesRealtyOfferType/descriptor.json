@@ -2,7 +2,7 @@
   "Descriptor": {
     "UId": "4e14d498-540c-4a45-b6fd-042145a4072b",
     "Name": "JamesRealtyOfferType",
-    "ModifiedOnUtc": "\/Date(1733900812000)\/",
+    "ModifiedOnUtc": "\/Date(1733988439000)\/",
     "Parent": {
       "UId": "11ab4bcb-9b23-4b6d-9c86-520fae925d75",
       "Name": "BaseLookup"

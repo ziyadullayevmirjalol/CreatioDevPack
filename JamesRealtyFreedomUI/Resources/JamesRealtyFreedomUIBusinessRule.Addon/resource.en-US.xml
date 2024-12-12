@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="en-US">
+	<Group Type="String">
+		<Items>
+			<Item Name="AddonConfig.Rules.cfbf260e-3406-c3a0-e658-9b50f475958c.Caption" Value="Set values: Comment" />
+			<Item Name="Caption" Value="Realty Freedom UI (Business rules)" />
+		</Items>
+	</Group>
+</Resources>

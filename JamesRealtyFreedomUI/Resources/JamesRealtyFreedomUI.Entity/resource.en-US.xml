@@ -5,6 +5,7 @@
 			<Item Name="Caption" Value="Realty Freedom UI" />
 			<Item Name="Columns.JamesArea.Caption" Value="Area, sq ft" />
 			<Item Name="Columns.JamesComment.Caption" Value="Comment" />
+			<Item Name="Columns.JamesCommission.Caption" Value="Commission" />
 			<Item Name="Columns.JamesManager.Caption" Value="Manager" />
 			<Item Name="Columns.JamesName.Caption" Value="Name" />
 			<Item Name="Columns.JamesNumber.Caption" Value="Number" />
