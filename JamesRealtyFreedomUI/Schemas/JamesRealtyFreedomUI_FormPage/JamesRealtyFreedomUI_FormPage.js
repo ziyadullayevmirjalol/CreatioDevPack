@@ -512,6 +512,22 @@ define("JamesRealtyFreedomUI_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 					return next?.handle(request);
 				}
 			},
+			{
+				request: "crt.HandleViewModelAttributeChangeRequest",
+
+				handler: async (request, next) => {
+					if (request.attributeName === 'NumberAttribute_98z17ve' ||
+						request.attributeName === 'JamesOfferTypeJamesCommissonPercent') {
+						var price = await request.$context.NumberAttribute_98z17ve;
+						var percent = await request.$context.JamesOfferTypeJamesCommissonPercent;
+						var commission = price * percent / 100;
+
+						request.$context.NumberAttribute_9k54d46 = commission;
+					}
+
+					return next?.handle(request);
+				}
+			}
 
 		]/**SCHEMA_HANDLERS*/,
 		converters: /**SCHEMA_CONVERTERS*/{}/**SCHEMA_CONVERTERS*/,
