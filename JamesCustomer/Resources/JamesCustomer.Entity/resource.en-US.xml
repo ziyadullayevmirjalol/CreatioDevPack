@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="en-US">
+	<Group Type="String">
+		<Items>
+			<Item Name="Caption" Value="Customer" />
+			<Item Name="Columns.JamesAddress.Caption" Value="Address" />
+			<Item Name="Columns.JamesCard.Caption" Value="Card" />
+			<Item Name="Columns.JamesCity.Caption" Value="City" />
+			<Item Name="Columns.JamesCounty.Caption" Value="Country" />
+			<Item Name="Columns.JamesDateOfBirth.Caption" Value="Date of birth" />
+			<Item Name="Columns.JamesEmail.Caption" Value="Email" />
+			<Item Name="Columns.JamesFullName.Caption" Value="Full Name" />
+			<Item Name="Columns.JamesNotes.Caption" Value="Notes" />
+			<Item Name="Columns.JamesPhone.Caption" Value="Phone" />
+			<Item Name="Columns.JamesPINFL.Caption" Value="PINFL" />
+			<Item Name="Columns.JamesState.Caption" Value="State" />
+		</Items>
+	</Group>
+</Resources>

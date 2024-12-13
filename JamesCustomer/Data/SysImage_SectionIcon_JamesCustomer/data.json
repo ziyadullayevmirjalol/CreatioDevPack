@@ -1,0 +1,24 @@
+{
+  "PackageData": [
+    {
+      "Row": [
+        {
+          "SchemaColumnUId": "ae0e45ca-c495-4fe7-a39d-3ab7278e1617",
+          "Value": "f8b9b018-795b-4988-adfa-0e5548e13b4e"
+        },
+        {
+          "SchemaColumnUId": "1e236958-f206-4fde-8a0e-6783fc223424",
+          "Value": "PHN2ZyBpZD0iQ29tcG9uZW50XzgzM183IiBkYXRhLW5hbWU9IkNvbXBvbmVudCA4MzMg4oCTIDciIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjM4IiBoZWlnaHQ9IjM4IiB2aWV3Qm94PSIwIDAgMzggMzgiPgogIDxjaXJjbGUgaWQ9IkVsbGlwc2VfMTUyNyIgY3g9IjQiIGN5PSI0IiByPSI0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMCAxMykiIGZpbGw9IiNmZmYiLz4KICA8cGF0aCBpZD0iUGF0aF83NTEzIiBkPSJNMTQsMjJhNi45NTcsNi45NTcsMCwwLDEsNyw3SDdBNi45NTcsNi45NTcsMCwwLDEsMTQsMjJaIiBmaWxsPSIjZmZmIi8+CiAgPHJlY3QgaWQ9IlJlY3RhbmdsZV83NTUyIiB3aWR0aD0iMzgiIGhlaWdodD0iMzgiIGZpbGw9Im5vbmUiLz4KICA8cGF0aCBpZD0iUGF0aF8xMDE0NiIgZGF0YS1uYW1lPSJQYXRoIDEwMTQ2IiBkPSJNMjMsOC41YTguNTIsOC41MiwwLDAsMC02LjUsM0E2LjA4Nyw2LjA4NywwLDAsMSwyMCwxN2E1LjksNS45LDAsMCwxLTEuNyw0LjJBMTAuMzA3LDEwLjMwNywwLDAsMSwyMywyNS41aDBhOC41LDguNSwwLDAsMCwwLTE3Wm0yLDEyLjNWMjJIMjNWMjAuOGEyLjM2MSwyLjM2MSwwLDAsMS0uOS0uNiwyLjk3NSwyLjk3NSwwLDAsMS0xLTJWMThoMmEuOTA4LjkwOCwwLDAsMCwuMy43Ljg0NC44NDQsMCwwLDAsLjcuMi44ODIuODgyLDAsMCwwLC45LS44YzAtLjYtLjctLjctMS4xLS44LTIuMy0uMy0zLTEuNy0yLjktMi44YTIuOSwyLjksMCwwLDEsMi0yLjRWMTFoMnYxLjJhMi41ODksMi41ODksMCwwLDEsMS4xLjcsMy4xNzYsMy4xNzYsMCwwLDEsLjgsMmwtMi0uMWExLjQyMSwxLjQyMSwwLDAsMC0uMi0uNmMtLjEtLjItLjQtLjItLjYtLjItLjcsMC0xLjEuNC0xLjEuN3MuNS42LDEuMi43YzIuMi4zLDIuOSwxLjgsMi44LDIuOUEyLjgsMi44LDAsMCwxLDI1LDIwLjhaIiBmaWxsPSIjZmZmIi8+Cjwvc3ZnPgo="
+        },
+        {
+          "SchemaColumnUId": "be95e737-14e9-4253-b0c4-e280da05434d",
+          "Value": "image/svg+xml"
+        },
+        {
+          "SchemaColumnUId": "d245dcaf-23bd-4b73-8718-26fdf38b443b",
+          "Value": "SectionIcon_JamesCustomer.svg"
+        }
+      ]
+    }
+  ]
+}

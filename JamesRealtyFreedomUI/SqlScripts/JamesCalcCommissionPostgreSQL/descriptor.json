@@ -1,0 +1,11 @@
+﻿{
+  "SqlScript": {
+    "UId": "534bc3c6-5d1f-f2df-98fc-a86bfd9fe4ad",
+    "Name": "JamesCalcCommissionPostgreSQL",
+    "DBEngineType": 2,
+    "InstallType": 1,
+    "ModifiedOnUtc": "\/Date(1734002706000)\/",
+    "BackwardCompatibilityConfirmed": false,
+    "DependsOn": []
+  }
+}

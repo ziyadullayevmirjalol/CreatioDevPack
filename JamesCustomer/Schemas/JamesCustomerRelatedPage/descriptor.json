@@ -1,0 +1,10 @@
+﻿{
+  "Descriptor": {
+    "UId": "a476f108-f8f0-4c67-aa98-77a046b3a6c2",
+    "Name": "JamesCustomerRelatedPage",
+    "ModifiedOnUtc": "\/Date(1734072578000)\/",
+    "ManagerName": "AddonSchemaManager",
+    "Caption": "Customer (Page settings)",
+    "DependsOn": []
+  }
+}

@@ -1,0 +1,10 @@
+﻿{
+  "Descriptor": {
+    "UId": "51349695-87f0-4c09-9015-81aef84680ae",
+    "Name": "JamesCardRelatedPage",
+    "ModifiedOnUtc": "\/Date(1734072705000)\/",
+    "ManagerName": "AddonSchemaManager",
+    "Caption": "Card (Page settings)",
+    "DependsOn": []
+  }
+}

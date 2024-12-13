@@ -1,0 +1,14 @@
+﻿{
+  "Descriptor": {
+    "UId": "f45f537f-7682-480f-8b23-a7df1324dd81",
+    "Name": "JamesCustomer_ListPage",
+    "ModifiedOnUtc": "\/Date(1734085709000)\/",
+    "Parent": {
+      "UId": "3f1f3f38-a0a4-4549-b895-249fb08f554a",
+      "Name": "ListFreedomTemplate"
+    },
+    "ManagerName": "ClientUnitSchemaManager",
+    "Caption": "Customer list page",
+    "DependsOn": []
+  }
+}

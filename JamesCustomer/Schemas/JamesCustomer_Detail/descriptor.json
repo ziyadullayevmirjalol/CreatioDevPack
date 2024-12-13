@@ -1,0 +1,14 @@
+﻿{
+  "Descriptor": {
+    "UId": "a70d5748-950d-4b6e-8ca1-da705366e443",
+    "Name": "JamesCustomer_Detail",
+    "ModifiedOnUtc": "\/Date(1734072578000)\/",
+    "Parent": {
+      "UId": "01eb38ee-668a-42f0-999d-c2534f979089",
+      "Name": "BaseGridDetailV2"
+    },
+    "ManagerName": "ClientUnitSchemaManager",
+    "Caption": "Customer detail",
+    "DependsOn": []
+  }
+}

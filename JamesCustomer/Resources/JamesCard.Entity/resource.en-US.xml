@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="en-US">
+	<Group Type="String">
+		<Items>
+			<Item Name="Caption" Value="Card" />
+			<Item Name="Columns.JamesCardNumber.Caption" Value="CardNumber" />
+			<Item Name="Columns.JamesCardType.Caption" Value="Card type" />
+			<Item Name="Columns.JamesCustomer.Caption" Value="Customer" />
+			<Item Name="Columns.JamesExpiryDate.Caption" Value="Expiry date" />
+		</Items>
+	</Group>
+</Resources>

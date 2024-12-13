@@ -1,14 +1,14 @@
 ﻿{
   "Descriptor": {
-    "UId": "c8447774-8aa8-43c7-ac56-1f61d9ecf68e",
-    "Name": "JamesRealtyFreedomUI",
-    "ModifiedOnUtc": "\/Date(1734067008000)\/",
+    "UId": "3a7e7a5e-abd2-473e-a9ae-a2e4aba6c55d",
+    "Name": "JamesCustomer",
+    "ModifiedOnUtc": "\/Date(1734083521000)\/",
     "Parent": {
       "UId": "1bab9dcf-17d5-49f8-9536-8e0064f1dce0",
       "Name": "BaseEntity"
     },
     "ManagerName": "EntitySchemaManager",
-    "Caption": "Realty Freedom UI",
+    "Caption": "Customer",
     "DependsOn": []
   }
 }

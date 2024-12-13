@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="en-US">
+	<Group Type="String">
+		<Items>
+			<Item Name="AddonConfig.Rules.bfb09ea1-491a-e869-c6d5-7fc2be13aa9b.Caption" Value="Show elements: PINFL" />
+			<Item Name="Caption" Value="Card form page (Business rules)" />
+		</Items>
+	</Group>
+</Resources>

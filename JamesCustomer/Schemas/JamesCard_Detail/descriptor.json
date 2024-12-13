@@ -1,0 +1,14 @@
+﻿{
+  "Descriptor": {
+    "UId": "7328251d-544b-45d5-8c1b-c02c2fe6ad59",
+    "Name": "JamesCard_Detail",
+    "ModifiedOnUtc": "\/Date(1734072705000)\/",
+    "Parent": {
+      "UId": "01eb38ee-668a-42f0-999d-c2534f979089",
+      "Name": "BaseGridDetailV2"
+    },
+    "ManagerName": "ClientUnitSchemaManager",
+    "Caption": "Card detail",
+    "DependsOn": []
+  }
+}

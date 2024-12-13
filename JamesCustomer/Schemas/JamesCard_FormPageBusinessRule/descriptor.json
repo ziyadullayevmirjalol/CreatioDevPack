@@ -1,0 +1,10 @@
+﻿{
+  "Descriptor": {
+    "UId": "d1f56dcb-4242-4ced-946c-c6cec045b21b",
+    "Name": "JamesCard_FormPageBusinessRule",
+    "ModifiedOnUtc": "\/Date(1734084715000)\/",
+    "ManagerName": "AddonSchemaManager",
+    "Caption": "Card form page (Business rules)",
+    "DependsOn": []
+  }
+}
