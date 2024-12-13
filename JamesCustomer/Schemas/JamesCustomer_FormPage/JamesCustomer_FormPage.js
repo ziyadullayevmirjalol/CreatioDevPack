@@ -642,6 +642,15 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 					"NumberAttribute_eihvx2q": {
 						"modelConfig": {
 							"path": "PDS.JamesPINFL"
+						},
+						"validators": {
+							"PinflValidator": {
+								"type": "pinflValidator",
+								"params": {
+									"minValue": 14,
+									"message": "#ResourceString(PINFLMustBe14)#"
+								}
+							}
 						}
 					}
 				}
@@ -717,6 +726,38 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 		]/**SCHEMA_MODEL_CONFIG_DIFF*/,
 		handlers: /**SCHEMA_HANDLERS*/[]/**SCHEMA_HANDLERS*/,
 		converters: /**SCHEMA_CONVERTERS*/{}/**SCHEMA_CONVERTERS*/,
-		validators: /**SCHEMA_VALIDATORS*/{}/**SCHEMA_VALIDATORS*/
+		validators: /**SCHEMA_VALIDATORS*/{
+			/* The validator type must contain a vendor prefix.
+			Format the validator type in PascalCase. */
+			"usr.DGValidator": {
+				validator: function (config) {
+					return function (control) {
+						let value = control.value;
+						let minValue = config.minValue;
+						let valueIsCorrect = value >= minValue;
+						var result;
+						if (valueIsCorrect) {
+							result = null;
+						} else {
+							result = {
+								"usr.DGValidator": { 
+									message: config.message
+								}
+							};
+						}
+						return result;
+					};
+				},
+				params: [
+					{
+						name: "minValue"
+					},
+					{
+						name: "message"
+					}
+				],
+				async: false
+			}
+		}/**SCHEMA_VALIDATORS*/
 	};
 });
