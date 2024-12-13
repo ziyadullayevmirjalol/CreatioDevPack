@@ -4,6 +4,7 @@
 		<Items>
 			<Item Name="Caption" Value="Realty Freedom UI list page" />
 			<Item Name="LocalizableStrings.Button_6srwcwt_caption.Value" Value="push it" />
+			<Item Name="LocalizableStrings.Button_co4dpwv_caption.Value" Value="Refresh" />
 			<Item Name="LocalizableStrings.LookupQuickFilterByTag_config_caption.Value" Value="Tag filter" />
 			<Item Name="LocalizableStrings.LookupQuickFilterByTag_config_hint.Value" Value="Select tag to filter" />
 			<Item Name="LocalizableStrings.RefreshButtonCaption.Value" Value="Refresh" />

@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Resources Culture="ro-RO">
-	<Group Type="String">
-		<Items>
-			<Item Name="Caption" Value="Customer Feedback" />
-			<Item Name="Columns.JamesCustomerName.Caption" Value="Nume" />
-		</Items>
-	</Group>
-</Resources>

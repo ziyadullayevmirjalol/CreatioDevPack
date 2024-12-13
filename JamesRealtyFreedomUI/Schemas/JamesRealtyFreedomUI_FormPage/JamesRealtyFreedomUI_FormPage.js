@@ -3,6 +3,32 @@ define("JamesRealtyFreedomUI_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 		viewConfigDiff: /**SCHEMA_VIEW_CONFIG_DIFF*/[
 			{
 				"operation": "merge",
+				"name": "MainHeader",
+				"values": {
+					"color": "transparent",
+					"visible": true,
+					"justifyContent": "start",
+					"alignItems": "stretch",
+					"wrap": "nowrap"
+				}
+			},
+			{
+				"operation": "merge",
+				"name": "MainHeaderBottom",
+				"values": {
+					"color": "transparent",
+					"borderRadius": "none",
+					"padding": {
+						"top": "none",
+						"right": "none",
+						"bottom": "none",
+						"left": "none"
+					},
+					"alignItems": "stretch"
+				}
+			},
+			{
+				"operation": "merge",
 				"name": "SideAreaProfileContainer",
 				"values": {
 					"columns": [
@@ -13,6 +39,19 @@ define("JamesRealtyFreedomUI_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 						"rowGap": "none"
 					},
 					"visible": true
+				}
+			},
+			{
+				"operation": "merge",
+				"name": "Tabs",
+				"values": {
+					"styleType": "default",
+					"mode": "tab",
+					"bodyBackgroundColor": "primary-contrast-500",
+					"selectedTabTitleColor": "auto",
+					"tabTitleColor": "auto",
+					"underlineSelectedTabColor": "auto",
+					"headerBackgroundColor": "auto"
 				}
 			},
 			{
@@ -413,7 +452,7 @@ define("JamesRealtyFreedomUI_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 								"type": "usr.DGValidator",
 								"params": {
 									"minValue": 50,
-									"message": "#ResourceString(PriceCannotBeLess)#",
+									"message": "#ResourceString(PriceCannotBeLess)#"
 								}
 							}
 						}
@@ -427,7 +466,7 @@ define("JamesRealtyFreedomUI_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 								"type": "usr.DGValidator",
 								"params": {
 									"minValue": 50,
-									"message": "#ResourceString(PriceCannotBeLess)#",
+									"message": "#ResourceString(PriceCannotBeLess)#"
 								}
 							}
 						}

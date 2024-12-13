@@ -3,9 +3,38 @@ define("JamesRealtyFreedomUI_ListPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 		viewConfigDiff: /**SCHEMA_VIEW_CONFIG_DIFF*/[
 			{
 				"operation": "merge",
+				"name": "MainHeader",
+				"values": {
+					"color": "transparent",
+					"visible": true,
+					"borderRadius": "none",
+					"gap": "small"
+				}
+			},
+			{
+				"operation": "merge",
+				"name": "MainContainer",
+				"values": {
+					"color": "transparent",
+					"visible": true,
+					"borderRadius": "none",
+					"padding": {
+						"top": "none",
+						"right": "none",
+						"bottom": "none",
+						"left": "none"
+					},
+					"justifyContent": "start",
+					"alignItems": "stretch",
+					"wrap": "nowrap"
+				}
+			},
+			{
+				"operation": "merge",
 				"name": "SectionContentWrapper",
 				"values": {
 					"direction": "row",
+					"color": "transparent",
 					"borderRadius": "none",
 					"padding": {
 						"top": "none",
@@ -15,7 +44,9 @@ define("JamesRealtyFreedomUI_ListPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 					},
 					"justifyContent": "start",
 					"gap": "small",
-					"wrap": "nowrap"
+					"wrap": "nowrap",
+					"visible": true,
+					"alignItems": "stretch"
 				}
 			},
 			{
@@ -24,10 +55,33 @@ define("JamesRealtyFreedomUI_ListPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 				"values": {
 					"columns": [
 						{
+							"id": "d85b11d8-34b2-cf97-2278-4d7d9d9ece8a",
+							"code": "PDS_JamesNumber",
+							"path": "JamesNumber",
+							"caption": "#ResourceString(PDS_JamesNumber)#",
+							"dataValueType": 27
+						},
+						{
 							"id": "f252f581-0ccf-44ac-b7c9-c00df2ad9919",
 							"code": "PDS_JamesName",
 							"caption": "#ResourceString(PDS_JamesName)#",
 							"dataValueType": 1
+						},
+						{
+							"id": "d927e7b7-9965-a295-b995-d799d5635641",
+							"code": "PDS_JamesType",
+							"path": "JamesType",
+							"caption": "#ResourceString(PDS_JamesType)#",
+							"dataValueType": 10,
+							"referenceSchemaName": "JamesRealtyTypeFreedomUI"
+						},
+						{
+							"id": "06c972e7-e1a5-186c-652c-82af831f01b7",
+							"code": "PDS_JamesOfferType",
+							"path": "JamesOfferType",
+							"caption": "#ResourceString(PDS_JamesOfferType)#",
+							"dataValueType": 10,
+							"referenceSchemaName": "JamesRealtyOfferType"
 						},
 						{
 							"id": "c8689d78-80ba-4e71-8cf2-fa478e3be5bc",
@@ -46,8 +100,19 @@ define("JamesRealtyFreedomUI_ListPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 						"basis": "100%",
 						"width": 300
 					},
+					"features": {
+						"rows": {
+							"selection": false
+						},
+						"editable": {
+							"enable": false,
+							"itemsCreation": false
+						}
+					},
 					"primaryColumnName": "PDS_Id",
-					"sorting": "$ItemsSorting | crt.ToDataTableSortingConfig: 'Items'"
+					"sorting": "$ItemsSorting | crt.ToDataTableSortingConfig: 'Items'",
+					"visible": true,
+					"fitContent": true
 				}
 			},
 			{
@@ -57,6 +122,34 @@ define("JamesRealtyFreedomUI_ListPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 					"selectionState",
 					"_selectionOptions"
 				]
+			},
+			{
+				"operation": "insert",
+				"name": "Button_co4dpwv",
+				"values": {
+					"type": "crt.Button",
+					"caption": "#ResourceString(Button_co4dpwv_caption)#",
+					"color": "default",
+					"disabled": false,
+					"size": "large",
+					"iconPosition": "left-icon",
+					"visible": true,
+					"clicked": {
+						"request": "crt.LoadDataRequest",
+						"params": {
+							"config": {
+								"loadType": "reload",
+								"useLastLoadParameters": true
+							},
+							"dataSourceName": "PDS"
+						}
+					},
+					"clickMode": "default",
+					"icon": "reload-button-icon"
+				},
+				"parentName": "ActionButtonsContainer",
+				"propertyName": "items",
+				"index": 0
 			},
 			{
 				"operation": "insert",
@@ -74,7 +167,7 @@ define("JamesRealtyFreedomUI_ListPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 						"rowGap": "none"
 					},
 					"items": [],
-					"color": "primary",
+					"color": "transparent",
 					"borderRadius": "none",
 					"padding": {
 						"top": "small",
@@ -82,7 +175,8 @@ define("JamesRealtyFreedomUI_ListPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 						"bottom": "none",
 						"left": "none"
 					},
-					"fitContent": true
+					"fitContent": true,
+					"visible": true
 				},
 				"parentName": "MainContainer",
 				"propertyName": "items",
@@ -408,14 +502,24 @@ define("JamesRealtyFreedomUI_ListPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 					"attributes"
 				],
 				"values": {
-					"PDS_Id": {
+					"PDS_JamesNumber": {
 						"modelConfig": {
-							"path": "PDS.Id"
+							"path": "PDS.JamesNumber"
 						}
 					},
 					"PDS_JamesName": {
 						"modelConfig": {
 							"path": "PDS.JamesName"
+						}
+					},
+					"PDS_JamesType": {
+						"modelConfig": {
+							"path": "PDS.JamesType"
+						}
+					},
+					"PDS_JamesOfferType": {
+						"modelConfig": {
+							"path": "PDS.JamesOfferType"
 						}
 					},
 					"PDS_CreatedOn": {
@@ -426,6 +530,11 @@ define("JamesRealtyFreedomUI_ListPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 					"PDS_CreatedBy": {
 						"modelConfig": {
 							"path": "PDS.CreatedBy"
+						}
+					},
+					"PDS_Id": {
+						"modelConfig": {
+							"path": "PDS.Id"
 						}
 					}
 				}
@@ -441,7 +550,27 @@ define("JamesRealtyFreedomUI_ListPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, func
 							"type": "crt.EntityDataSource",
 							"hiddenInPageDesigner": true,
 							"config": {
-								"entitySchemaName": "JamesRealtyFreedomUI"
+								"entitySchemaName": "JamesRealtyFreedomUI",
+								"attributes": {
+									"JamesNumber": {
+										"path": "JamesNumber"
+									},
+									"JamesName": {
+										"path": "JamesName"
+									},
+									"JamesType": {
+										"path": "JamesType"
+									},
+									"JamesOfferType": {
+										"path": "JamesOfferType"
+									},
+									"CreatedOn": {
+										"path": "CreatedOn"
+									},
+									"CreatedBy": {
+										"path": "CreatedBy"
+									}
+								}
 							},
 							"scope": "viewElement"
 						}
