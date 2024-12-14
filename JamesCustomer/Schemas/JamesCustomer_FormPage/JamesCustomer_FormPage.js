@@ -555,7 +555,7 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 							"FullNameValidator": {
 								"type": "usr.FullNameValidator",
 								"params": {
-									"message": "#ResourceString(CustomerFullNameValidatonMessage)#"
+									"message": "#ResourceString(CustomerFullNameValidationMessage)#"
 								}
 							}
 						}
@@ -734,7 +734,7 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 					return function (control) {
 						let fullName = control.value;
 
-						const fullNameRegex = /^[A-Za-z]+$/;
+						const fullNameRegex = /^[A-Za-z]+ [A-Za-z]+$/;
 						let valueIsCorrect = true;
 
 						if (!fullName || !fullNameRegex.test(fullName) || fullName.length < 3) {
@@ -747,7 +747,37 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 						} else {
 							result = {
 								"usr.FullNameValidator": {
-									message: "#ResourceString(CustomerFullNameValidatonMessage)#",
+									message: "#ResourceString(CustomerFullNameValidationMessage)#",
+								},
+							};
+						}
+
+						return result;
+					};
+				},
+				params: [
+					{
+						name: "message"
+					}
+				],
+				async: false
+			},
+			"usr.EmailValidator": {
+				validator: function (config) {
+					return function (control) {
+						let email = control.value; 
+
+						const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+						const isValidEmail = emailRegex.test(email);
+
+						let result;
+						if (isValidEmail) {
+							result = null;
+						} else {
+							result = {
+								"usr.EmailValidator": {
+									message: "#ResourceString(EmailValidationMessage)#",
 								},
 							};
 						}
@@ -762,6 +792,7 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 				],
 				async: false
 			}
+
 		}/**SCHEMA_VALIDATORS*/
 	};
 });
