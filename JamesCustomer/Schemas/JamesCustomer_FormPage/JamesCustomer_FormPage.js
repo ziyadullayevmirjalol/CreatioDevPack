@@ -589,6 +589,14 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 					"DateTimeAttribute_wbcy5pc": {
 						"modelConfig": {
 							"path": "PDS.JamesDateOfBirth"
+						},
+						"validators": {
+							"PhoneValidator": {
+								"type": "usr.DateOfBirthValidator",
+								"params": {
+									"message": "#ResourceString(DateOfBirthValidationMessage)#"
+								}
+							}
 						}
 					},
 					"StringAttribute_f1ef5pq": {
@@ -827,6 +835,46 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 							result = {
 								"usr.PhoneValidator": {
 									message: "#ResourceString(PhoneValidationMessage)#",
+								}
+							};
+						}
+
+						return result;
+					};
+				},
+				params: [
+					{
+						name: "message"
+					}
+				],
+				async: false
+			},
+			"usr.DateOfBirthValidator": {
+				validator: function (config) {
+					return function (control) {
+						let dateOfBirth = control.value;
+
+						let isValidDate = !isNaN(Date.parse(dateOfBirth));
+
+						let valueIsCorrect = false;
+						if (isValidDate) {
+							let today = new Date();
+							let birthDate = new Date(dateOfBirth);
+							let age = today.getFullYear() - birthDate.getFullYear();
+							let monthDifference = today.getMonth() - birthDate.getMonth();
+
+							if (age > 18 || (age === 18 && monthDifference >= 0)) {
+								valueIsCorrect = true;
+							}
+						}
+
+						let result;
+						if (valueIsCorrect) {
+							result = null;
+						} else {
+							result = {
+								"usr.DateOfBirthValidator": {
+									message: "#ResourceString(DateOfBirthValidationMessage)#",
 								}
 							};
 						}
