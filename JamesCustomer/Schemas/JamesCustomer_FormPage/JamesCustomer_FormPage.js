@@ -563,11 +563,27 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 					"StringAttribute_mcu2qwy": {
 						"modelConfig": {
 							"path": "PDS.JamesEmail"
+						},
+						"validators": {
+							"EmailValidator": {
+								"type": "usr.EmailValidator",
+								"params": {
+									"message": "#ResourceString(EmailValidationMessage)#"
+								}
+							}
 						}
 					},
 					"StringAttribute_ghvb7at": {
 						"modelConfig": {
 							"path": "PDS.JamesPhone"
+						},
+						"validators": {
+							"PhoneValidator": {
+								"type": "usr.PhoneValidator",
+								"params": {
+									"message": "#ResourceString(PhoneValidationMessage)#"
+								}
+							}
 						}
 					},
 					"DateTimeAttribute_wbcy5pc": {
@@ -765,7 +781,7 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 			"usr.EmailValidator": {
 				validator: function (config) {
 					return function (control) {
-						let email = control.value; 
+						let email = control.value;
 
 						const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -779,6 +795,39 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 								"usr.EmailValidator": {
 									message: "#ResourceString(EmailValidationMessage)#",
 								},
+							};
+						}
+
+						return result;
+					};
+				},
+				params: [
+					{
+						name: "message"
+					}
+				],
+				async: false
+			},
+			"usr.PhoneValidator": {
+				validator: function (config) {
+					return function (control) {
+						let mobileNumber = control.value;
+
+						const mobileNumberRegex = /^[\d\+\-]{10,15}$/;
+
+						let valueIsCorrect = true;
+						if (mobileNumber === null || !mobileNumberRegex.test(mobileNumber)) {
+							valueIsCorrect = false;
+						}
+
+						let result;
+						if (valueIsCorrect) {
+							result = null;
+						} else {
+							result = {
+								"usr.PhoneValidator": {
+									message: "#ResourceString(PhoneValidationMessage)#",
+								}
 							};
 						}
 
