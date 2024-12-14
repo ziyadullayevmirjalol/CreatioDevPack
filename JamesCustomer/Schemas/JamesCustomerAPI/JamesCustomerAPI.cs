@@ -49,7 +49,7 @@ namespace Terrasoft.Configuration
                     }
                 }
 
-                if (Customers.Count == 0)
+                if (customers.Count == 0)
                 {
                     string errorMessage = "There are no customers yet!";
                     var response = new HttpResponseMessage(HttpStatusCode.BadRequest);
