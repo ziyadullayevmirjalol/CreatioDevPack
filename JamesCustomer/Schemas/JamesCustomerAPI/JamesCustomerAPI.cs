@@ -1,14 +1,13 @@
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.ServiceModel.Activation;
 using Terrasoft.Core.DB;
 using Terrasoft.Web.Common;
-using System;
-using System.Web.SessionState;
-using System.IO;
-using System.Globalization;
 using Terrasoft.Core;
-using Terrasoft.Common;
+using System.Data;
 
 namespace Terrasoft.Configuration
 {
@@ -25,6 +24,7 @@ namespace Terrasoft.Configuration
             {
                 var customers = new List<object>();
 
+                // SQL Query to fetch customer details
                 Select selectCustomers = new Select(UserConnection)
                     .Column("Id")
                     .Column("JamesFullName")
@@ -32,6 +32,7 @@ namespace Terrasoft.Configuration
                     .Column("JamesPINFL")
                     .From("JamesCustomer") as Select;
 
+                // Execute query
                 using (DBExecutor dbExecutor = UserConnection.EnsureDBConnection())
                 {
                     using (IDataReader reader = selectCustomers.ExecuteReader(dbExecutor))
@@ -49,24 +50,35 @@ namespace Terrasoft.Configuration
                     }
                 }
 
+                // If no customers found, return BadRequest response
                 if (customers.Count == 0)
                 {
-                    string errorMessage = "There are no customers yet!";
-                    var response1 = new HttpResponseMessage(HttpStatusCode.BadRequest);
-                    response.Headers.Add("X-Error-Message", errorMessage);
-                    return response;
+                    var noCustomersResponse = new HttpResponseMessage(HttpStatusCode.BadRequest)
+                    {
+                        Content = new StringContent("There are no customers yet!")
+                    };
+                    noCustomersResponse.Headers.Add("X-Error-Message", "No data available");
+                    return noCustomersResponse;
                 }
 
-                var customersReponse = new HttpResponseMessage(HttpStatusCode.OK);
-                customersReponse.Content = new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(customers));
-                return customersReponse;
+                // If customers found, return OK response
+                var customersResponse = new HttpResponseMessage(HttpStatusCode.OK)
+                {
+                    Content = new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(customers),
+                                                System.Text.Encoding.UTF8,
+                                                "application/json")
+                };
+                return customersResponse;
             }
             catch (Exception ex)
             {
-                var response = new HttpResponseMessage(HttpStatusCode.InternalServerError);
-                string error = ex.Message;
-                response.Headers.Add("X-Error-Message", error);
-                return response;
+                // Return InternalServerError response on exception
+                var errorResponse = new HttpResponseMessage(HttpStatusCode.InternalServerError)
+                {
+                    Content = new StringContent($"An error occurred: {ex.Message}")
+                };
+                errorResponse.Headers.Add("X-Error-Message", ex.Message);
+                return errorResponse;
             }
         }
     }
