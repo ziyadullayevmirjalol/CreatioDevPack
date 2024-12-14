@@ -2,13 +2,12 @@
   "Descriptor": {
     "UId": "f53903aa-7239-454d-8a59-ec53b3f8d5d2",
     "Name": "JamesCard",
-    "ModifiedOnUtc": "\/Date(1734084701000)\/",
+    "ModifiedOnUtc": "\/Date(1734174048000)\/",
     "Parent": {
       "UId": "1bab9dcf-17d5-49f8-9536-8e0064f1dce0",
       "Name": "BaseEntity"
     },
     "ManagerName": "EntitySchemaManager",
-    "Caption": "Card",
-    "DependsOn": []
+    "Caption": "Card"
   }
 }

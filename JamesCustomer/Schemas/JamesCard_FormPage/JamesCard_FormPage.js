@@ -234,11 +234,27 @@ define("JamesCard_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 					"StringAttribute_dhk4qey": {
 						"modelConfig": {
 							"path": "PDS.JamesCardNumber"
+						},
+						"validators": {
+							"CardNumberValidator": {
+								"type": "usr.CardNumberValidator",
+								"params": {
+									"message": "#ResourceString(CardNumberValidationMessage)#"
+								}
+							}
 						}
 					},
 					"DateTimeAttribute_drvsj27": {
 						"modelConfig": {
 							"path": "PDS.JamesExpiryDate"
+						},
+						"validators": {
+							"ExpiryDateValidator": {
+								"type": "usr.ExpiryDateValidator",
+								"params": {
+									"message": "#ResourceString(ExpiryDateValidationMessage)#"
+								}
+							}
 						}
 					},
 					"LookupAttribute_xzxnrnd": {
@@ -332,6 +348,77 @@ define("JamesCard_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 		]/**SCHEMA_MODEL_CONFIG_DIFF*/,
 		handlers: /**SCHEMA_HANDLERS*/[]/**SCHEMA_HANDLERS*/,
 		converters: /**SCHEMA_CONVERTERS*/{}/**SCHEMA_CONVERTERS*/,
-		validators: /**SCHEMA_VALIDATORS*/{}/**SCHEMA_VALIDATORS*/
+		validators: /**SCHEMA_VALIDATORS*/{
+			"usr.CardNumberValidator": {
+				validator: function (config) {
+					return function (control) {
+						let cardNumber = control.value;
+
+						const cardNumberRegex = /^(?:\d{4}-){3}\d{4}$|^\d{16}$/;
+
+						let valueIsCorrect = cardNumberRegex.test(cardNumber);
+
+						let result;
+						if (valueIsCorrect) {
+							result = null;
+						} else {
+							result = {
+								"usr.CardNumberValidator": {
+									message: "#ResourceString(CardNumberValidationMessage)#",
+								}
+							};
+						}
+
+						return result;
+					};
+				},
+				params: [
+					{
+						name: "message"
+					}
+				],
+				async: false
+			},
+			"usr.ExpiryDateValidator": {
+				validator: function (config) {
+					return function (control) {
+						let expiryDate = control.value;
+
+						let isValidDate = !isNaN(Date.parse(expiryDate));
+						let valueIsCorrect = false;
+
+						if (isValidDate) {
+							let today = new Date();
+							let inputDate = new Date(expiryDate);
+
+							if (inputDate > today) {
+								valueIsCorrect = true;
+							}
+						}
+
+						let result;
+						if (valueIsCorrect) {
+							result = null;
+						} else {
+							result = {
+								"usr.ExpiryDateValidator": {
+									message: "#ResourceString(ExpiryDateValidationMessage)#",
+								}
+							};
+						}
+
+						return result;
+					};
+				},
+				params: [
+					{
+						name: "message"
+					}
+				],
+				async: false
+			}
+
+
+		}/**SCHEMA_VALIDATORS*/
 	};
 });

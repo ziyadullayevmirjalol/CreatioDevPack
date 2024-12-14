@@ -2,13 +2,12 @@
   "Descriptor": {
     "UId": "3a7e7a5e-abd2-473e-a9ae-a2e4aba6c55d",
     "Name": "JamesCustomer",
-    "ModifiedOnUtc": "\/Date(1734151568000)\/",
+    "ModifiedOnUtc": "\/Date(1734173292000)\/",
     "Parent": {
       "UId": "1bab9dcf-17d5-49f8-9536-8e0064f1dce0",
       "Name": "BaseEntity"
     },
     "ManagerName": "EntitySchemaManager",
-    "Caption": "Customer",
-    "DependsOn": []
+    "Caption": "Customer"
   }
 }
