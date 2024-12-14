@@ -555,7 +555,7 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 							"FullNameValidator": {
 								"type": "usr.FullNameValidator",
 								"params": {
-									"message": "#ResourceString(FullNameValidationMessage)#"
+									"message": "#ResourceString(CustomerFullNameValidatonMessage)#"
 								}
 							}
 						}
@@ -737,7 +737,7 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 						const fullNameRegex = /^[A-Za-z]+$/;
 						let valueIsCorrect = true;
 
-						if (!fullName || !fullNameRegex.test(fullName) || fullName.size < 3) {
+						if (!fullName || !fullNameRegex.test(fullName) || fullName.length < 3) {
 							valueIsCorrect = false;
 						}
 
@@ -747,8 +747,8 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 						} else {
 							result = {
 								"usr.FullNameValidator": {
-									message: "Fullname lenght must be at least 3 characters and only can contain letters!"
-								}
+									message: "#ResourceString(CustomerFullNameValidatonMessage)#",
+								},
 							};
 						}
 
