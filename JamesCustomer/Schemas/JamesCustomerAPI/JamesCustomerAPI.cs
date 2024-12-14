@@ -19,7 +19,7 @@ namespace Terrasoft.Configuration
         [OperationContract]
         [WebInvoke(Method = "GET", BodyStyle = WebMessageBodyStyle.Wrapped,
             RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public List<object> GetAllCustomers()
+        public HttpResponseMessage GetAllCustomers()
         {
             try
             {
@@ -52,12 +52,14 @@ namespace Terrasoft.Configuration
                 if (customers.Count == 0)
                 {
                     string errorMessage = "There are no customers yet!";
-                    var response = new HttpResponseMessage(HttpStatusCode.BadRequest);
+                    var response1 = new HttpResponseMessage(HttpStatusCode.BadRequest);
                     response.Headers.Add("X-Error-Message", errorMessage);
                     return response;
                 }
 
-                return JsonConvert.SerializeObject(customers);
+                var customersReponse = new HttpResponseMessage(HttpStatusCode.OK);
+                customersReponse.Content = new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(customers));
+                return customersReponse;
             }
             catch (Exception ex)
             {
