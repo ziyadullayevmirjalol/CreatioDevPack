@@ -591,7 +591,7 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 							"path": "PDS.JamesDateOfBirth"
 						},
 						"validators": {
-							"PhoneValidator": {
+							"DateOfBirthValidator": {
 								"type": "usr.DateOfBirthValidator",
 								"params": {
 									"message": "#ResourceString(DateOfBirthValidationMessage)#"
@@ -675,6 +675,14 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 					"NumberAttribute_eihvx2q": {
 						"modelConfig": {
 							"path": "PDS.JamesPINFL"
+						},
+						"validators": {
+							"PINFLValidator": {
+								"type": "usr.PINFLValidator",
+								"params": {
+									"message": "#ResourceString(PINFLValidationMessage)#"
+								}
+							}
 						}
 					}
 				}
@@ -875,6 +883,36 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 							result = {
 								"usr.DateOfBirthValidator": {
 									message: "#ResourceString(DateOfBirthValidationMessage)#",
+								}
+							};
+						}
+
+						return result;
+					};
+				},
+				params: [
+					{
+						name: "message"
+					}
+				],
+				async: false
+			},
+			"usr.PINFLValidator": {
+				validator: function (config) {
+					return function (control) {
+						let pinfl = control.value;
+
+						const pinflRegex = /^\d{14}$/;
+
+						let valueIsCorrect = pinflRegex.test(pinfl);
+
+						let result;
+						if (valueIsCorrect) {
+							result = null;
+						} else {
+							result = {
+								"usr.PINFLValidator": {
+									message: "#ResourceString(PINFLValidationMessage)#",
 								}
 							};
 						}
