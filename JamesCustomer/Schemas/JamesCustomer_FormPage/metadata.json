@@ -73,7 +73,7 @@
 }
 + MetaData.Schema.B2 {
   "UId": "52798e03-743e-8e35-f90b-7c60f9974bac",
-  "A2": "DateOfBIrthValidationMessage",
+  "A2": "DateOfBirthValidationMessage",
   "A3": "8ccc0ccb-2a17-4ae0-a7b5-9d3c7eef2275",
   "A4": "8ccc0ccb-2a17-4ae0-a7b5-9d3c7eef2275",
   "A5": "ffe40519-d915-43a8-a6f4-4e408b9194fa"

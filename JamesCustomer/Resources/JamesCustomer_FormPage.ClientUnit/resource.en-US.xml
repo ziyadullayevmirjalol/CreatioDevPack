@@ -4,7 +4,7 @@
 		<Items>
 			<Item Name="Caption" Value="Customer form page" />
 			<Item Name="LocalizableStrings.CustomerFullNameValidationMessage.Value" Value="Name must be at least 3 characters long and cannot contain numbers or special characters.&quot;" />
-			<Item Name="LocalizableStrings.DateOfBIrthValidationMessage.Value" Value="Customer must be at least 18 years old" />
+			<Item Name="LocalizableStrings.DateOfBirthValidationMessage.Value" Value="Customer must be at least 18 years old" />
 			<Item Name="LocalizableStrings.EmailValidationMessage.Value" Value="Enter a valid email address." />
 			<Item Name="LocalizableStrings.ExpansionPanel_oe6dshy_title.Value" Value="Cards" />
 			<Item Name="LocalizableStrings.GridDetailAddBtn_75te63u_caption.Value" Value="New" />
