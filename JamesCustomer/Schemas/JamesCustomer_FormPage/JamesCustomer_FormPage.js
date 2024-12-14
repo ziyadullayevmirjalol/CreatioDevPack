@@ -550,6 +550,14 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 					"StringAttribute_buinod1": {
 						"modelConfig": {
 							"path": "PDS.JamesFullName"
+						},
+						"validators": {
+							"FullNameValidator": {
+								"type": "usr.FullNameValidator",
+								"params": {
+									"message": "#ResourceString(FullNameValidationMessage)#"
+								}
+							}
 						}
 					},
 					"StringAttribute_mcu2qwy": {
@@ -721,35 +729,39 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 		validators: /**SCHEMA_VALIDATORS*/{
 			/* The validator type must contain a vendor prefix.
 			Format the validator type in PascalCase. */
-			/* "usr.DGValidator": {
+			"usr.FullNameValidator": {
 				validator: function (config) {
 					return function (control) {
-						let value = control.value;
-						let minValue = config.minValue;
-						let valueIsCorrect = value >= minValue;
-						var result;
+						let fullName = control.value;
+
+						const fullNameRegex = /^[A-Za-z]+$/;
+						let valueIsCorrect = true;
+
+						if (!fullName || !fullNameRegex.test(fullName) || fullName.size < 3) {
+							valueIsCorrect = false;
+						}
+
+						let result;
 						if (valueIsCorrect) {
 							result = null;
 						} else {
 							result = {
-								"usr.DGValidator": { 
-									message: config.message
+								"usr.FullNameValidator": {
+									message: "Fullname lenght must be at least 3 characters and only can contain letters!"
 								}
 							};
 						}
+
 						return result;
 					};
 				},
 				params: [
 					{
-						name: "minValue"
-					},
-					{
 						name: "message"
 					}
 				],
 				async: false
-			} */
+			}
 		}/**SCHEMA_VALIDATORS*/
 	};
 });
