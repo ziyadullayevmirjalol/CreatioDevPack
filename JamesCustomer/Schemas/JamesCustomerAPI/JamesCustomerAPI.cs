@@ -19,7 +19,7 @@ namespace Terrasoft.Configuration
         [OperationContract]
         [WebInvoke(Method = "GET", BodyStyle = WebMessageBodyStyle.Wrapped,
             RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public string GetAllCustomers()
+        public List<object> GetAllCustomers()
         {
             try
             {
