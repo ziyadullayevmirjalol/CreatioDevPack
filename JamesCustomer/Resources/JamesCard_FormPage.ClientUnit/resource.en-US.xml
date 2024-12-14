@@ -11,8 +11,10 @@
 			<Item Name="LocalizableStrings.addRecord_s77nzdb_caption.Value" Value="Add new" />
 			<Item Name="LocalizableStrings.addRecord_x2uu1wb_caption.Value" Value="Add new" />
 			<Item Name="LocalizableStrings.addRecord_xpha1au_caption.Value" Value="Add new" />
+			<Item Name="LocalizableStrings.CardNumberValidationMessage.Value" Value="Enter a valid card number in the format 1234-5678-9876-5432" />
 			<Item Name="LocalizableStrings.ComboBox_kvrqheu_ariaLabel.Value" Value="Dropdown" />
 			<Item Name="LocalizableStrings.ComboBox_kvrqheu_label.Value" Value="Dropdown" />
+			<Item Name="LocalizableStrings.ExpiryDateValidationMessage.Value" Value="Enter a valid expiry date in the future" />
 		</Items>
 	</Group>
 </Resources>
