@@ -149,28 +149,14 @@ define("JamesCard_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 					"control": "$LookupAttribute_nz0zs8j",
 					"listActions": [],
 					"showValueAsLink": true,
-					"controlActions": []
+					"controlActions": [],
+					"visible": true,
+					"placeholder": "",
+					"tooltip": ""
 				},
 				"parentName": "SideAreaProfileContainer",
 				"propertyName": "items",
 				"index": 2
-			},
-			{
-				"operation": "insert",
-				"name": "addRecord_mauchof",
-				"values": {
-					"code": "addRecord",
-					"type": "crt.ComboboxSearchTextAction",
-					"icon": "combobox-add-new",
-					"caption": "#ResourceString(addRecord_mauchof_caption)#",
-					"clicked": {
-						"request": "crt.CreateRecordFromLookupRequest",
-						"params": {}
-					}
-				},
-				"parentName": "ComboBox_yb8ug1x",
-				"propertyName": "listActions",
-				"index": 0
 			},
 			{
 				"operation": "insert",
@@ -213,7 +199,7 @@ define("JamesCard_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 			},
 			{
 				"operation": "insert",
-				"name": "NumberInput_iw5ur9s",
+				"name": "Input_gzoi5rs",
 				"values": {
 					"layoutConfig": {
 						"column": 2,
@@ -221,14 +207,12 @@ define("JamesCard_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 						"colSpan": 1,
 						"rowSpan": 1
 					},
-					"type": "crt.NumberInput",
+					"type": "crt.Input",
 					"label": "$Resources.Strings.JamesCustomerJamesPINFL",
 					"labelPosition": "auto",
 					"control": "$JamesCustomerJamesPINFL",
-					"visible": false,
 					"readonly": true,
-					"placeholder": "",
-					"tooltip": ""
+					"multiline": false
 				},
 				"parentName": "GeneralInfoTabContainer",
 				"propertyName": "items",
@@ -295,6 +279,11 @@ define("JamesCard_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 					"LookupAttribute_u1i6dl9": {
 						"modelConfig": {
 							"path": "PDS.James"
+						}
+					},
+					"StringAttribute_bafw42k": {
+						"modelConfig": {
+							"path": "PDS.JamesColumn5"
 						}
 					}
 				}

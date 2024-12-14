@@ -2,13 +2,12 @@
   "Descriptor": {
     "UId": "163900f0-6faa-4a05-90d3-c0266f0599b7",
     "Name": "JamesCard_FormPage",
-    "ModifiedOnUtc": "\/Date(1734085446000)\/",
+    "ModifiedOnUtc": "\/Date(1734153225000)\/",
     "Parent": {
       "UId": "3b2e117f-8c6b-4ca5-80a2-7ebb497cddf9",
       "Name": "PageWithTabsFreedomTemplate"
     },
     "ManagerName": "ClientUnitSchemaManager",
-    "Caption": "Card form page",
-    "DependsOn": []
+    "Caption": "Card form page"
   }
 }

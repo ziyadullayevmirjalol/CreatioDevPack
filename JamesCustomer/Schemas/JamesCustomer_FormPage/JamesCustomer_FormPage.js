@@ -140,7 +140,7 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 			},
 			{
 				"operation": "insert",
-				"name": "NumberInput_cneujt1",
+				"name": "Input_8of5ier",
 				"values": {
 					"layoutConfig": {
 						"column": 1,
@@ -148,7 +148,8 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 						"colSpan": 1,
 						"rowSpan": 1
 					},
-					"type": "crt.NumberInput",
+					"type": "crt.Input",
+					"multiline": false,
 					"label": "$Resources.Strings.NumberAttribute_eihvx2q",
 					"labelPosition": "auto",
 					"control": "$NumberAttribute_eihvx2q"
@@ -642,15 +643,6 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 					"NumberAttribute_eihvx2q": {
 						"modelConfig": {
 							"path": "PDS.JamesPINFL"
-						},
-						"validators": {
-							"PinflValidator": {
-								"type": "pinflValidator",
-								"params": {
-									"minValue": 14,
-									"message": "#ResourceString(PINFLMustBe14)#"
-								}
-							}
 						}
 					}
 				}
@@ -729,7 +721,7 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 		validators: /**SCHEMA_VALIDATORS*/{
 			/* The validator type must contain a vendor prefix.
 			Format the validator type in PascalCase. */
-			"usr.DGValidator": {
+			/* "usr.DGValidator": {
 				validator: function (config) {
 					return function (control) {
 						let value = control.value;
@@ -757,7 +749,7 @@ define("JamesCustomer_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**
 					}
 				],
 				async: false
-			}
+			} */
 		}/**SCHEMA_VALIDATORS*/
 	};
 });
