@@ -22,7 +22,7 @@ namespace Terrasoft.Configuration
 
     [ServiceContract]
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
-    public class CustomerAPI : BaseService, IReadOnlySessionState
+    public class CustomerAPI : BaseService
     {
         [OperationContract]
         [WebInvoke(Method = "GET", BodyStyle = WebMessageBodyStyle.Wrapped,
