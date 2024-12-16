@@ -1,15 +1,16 @@
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.IO;
+using System.Net;
+using System.ServiceModel;
+using System.ServiceModel.Web;
+using System.ServiceModel.Activation;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
-using System.ServiceModel;
-using System.ServiceModel.Activation;
-using System.ServiceModel.Web;
 using Terrasoft.Core.DB;
-using Terrasoft.Core;
 using Terrasoft.Web.Common;
+using Terrasoft.Core;
+using System.Data;
 
 namespace Terrasoft.Configuration
 {
@@ -55,16 +56,16 @@ namespace Terrasoft.Configuration
             {
                 var customers = new List<CustomerModel>();
 
-                Select selectCustomers = new Select(UserConnection)
+                var selectCustomers = new Select(UserConnection)
                     .Column("Id")
                     .Column("JamesFullName")
                     .Column("JamesEmail")
                     .Column("JamesPINFL")
                     .From("JamesCustomer") as Select;
 
-                using (DBExecutor dbExecutor = UserConnection.EnsureDBConnection())
+                using (var dbExecutor = UserConnection.EnsureDBConnection())
                 {
-                    using (IDataReader reader = selectCustomers.ExecuteReader(dbExecutor))
+                    using (var reader = selectCustomers.ExecuteReader(dbExecutor))
                     {
                         while (reader.Read())
                         {
@@ -89,15 +90,11 @@ namespace Terrasoft.Configuration
                     };
                 }
 
-                // Explicitly serialize to JSON-friendly object
-                var serializedData = SerializeToJson(customers);
-                var jsonData = DeserializeFromJson<List<CustomerModel>>(serializedData);
-
                 return new ReponseModel
                 {
                     StatusCode = 200,
                     Message = "Success",
-                    Data = jsonData // JSON-friendly format
+                    Data = SerializeToJson(customers)
                 };
             }
             catch (Exception ex)
@@ -122,15 +119,6 @@ namespace Terrasoft.Configuration
                 {
                     return reader.ReadToEnd();
                 }
-            }
-        }
-
-        private T DeserializeFromJson<T>(string json)
-        {
-            using (var memoryStream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(json)))
-            {
-                var serializer = new DataContractJsonSerializer(typeof(T));
-                return (T)serializer.ReadObject(memoryStream);
             }
         }
     }
