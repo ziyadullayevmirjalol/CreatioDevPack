@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Linq;
+using System.Text.RegularExpressions;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.ServiceModel.Activation;
@@ -177,7 +179,7 @@ namespace Terrasoft.Configuration
                     return new ReponseModel
                     {
                         StatusCode = 400,
-                        Message = "Date of Birth must be in the format yyyy-MM-dd and at least 18 years ago.",
+                        Message = "Date of Birth must be at least 18 years ago.",
                         Data = null
                     };
                 }
@@ -263,17 +265,10 @@ namespace Terrasoft.Configuration
 
             return phone.All(c => char.IsDigit(c) || c == '+' || c == '-');
         }
-        private bool ValidateDateOfBirth(string dateOfBirth)
+        private bool ValidateDateOfBirth(DateTime dateOfBirth)
         {
-            if (!DateTime.TryParseExact(dateOfBirth, "yyyy-MM-dd", null, System.Globalization.DateTimeStyles.None, out DateTime parsedDate))
-            {
-                return false;
-            }
-
-            DateTime today = DateTime.Today;
-            DateTime minimumDate = today.AddYears(-18);
-
-            return parsedDate <= minimumDate;
+            DateTime minimumDate = DateTime.Today.AddYears(-18);
+            return dateOfBirth <= minimumDate;
         }
         private bool ValidatePINFL(string pinfl)
         {
