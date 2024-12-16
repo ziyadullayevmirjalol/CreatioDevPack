@@ -54,7 +54,7 @@ namespace Terrasoft.Configuration
         {
             try
             {
-                var customers = new IEnumerable<CustomerModel>();
+                var customers = new ICollection<CustomerModel>();
 
                 var selectCustomers = new Select(UserConnection)
                     .Column("Id")
