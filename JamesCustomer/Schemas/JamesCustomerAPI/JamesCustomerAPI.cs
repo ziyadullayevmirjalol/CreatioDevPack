@@ -1,30 +1,44 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
-using System.Net.Http;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.ServiceModel.Activation;
+using System.Runtime.Serialization;
 using Terrasoft.Core.DB;
 using Terrasoft.Web.Common;
 using Terrasoft.Core;
 using System.Data;
-using System.Text.Json;
 
 namespace Terrasoft.Configuration
 {
-
+    [DataContract]
     public class ReponseModel
     {
+        [DataMember]
         public int StatusCode { get; set; }
+
+        [DataMember]
         public string Message { get; set; }
+
+        [DataMember]
         public object Data { get; set; }
     }
+
+    [DataContract]
     public class CustomerModel
     {
+        [DataMember]
         public string Id { get; set; }
+
+        [DataMember]
         public string FullName { get; set; }
+
+        [DataMember]
         public string Email { get; set; }
+
+        [DataMember]
         public string PINFL { get; set; }
     }
 
@@ -41,16 +55,16 @@ namespace Terrasoft.Configuration
             {
                 var customers = new List<CustomerModel>();
 
-                Select selectCustomers = new Select(UserConnection)
+                var selectCustomers = new Select(UserConnection)
                     .Column("Id")
                     .Column("JamesFullName")
                     .Column("JamesEmail")
                     .Column("JamesPINFL")
                     .From("JamesCustomer") as Select;
 
-                using (DBExecutor dbExecutor = UserConnection.EnsureDBConnection())
+                using (var dbExecutor = UserConnection.EnsureDBConnection())
                 {
-                    using (IDataReader reader = selectCustomers.ExecuteReader(dbExecutor))
+                    using (var reader = selectCustomers.ExecuteReader(dbExecutor))
                     {
                         while (reader.Read())
                         {
@@ -67,11 +81,11 @@ namespace Terrasoft.Configuration
 
                 if (customers.Count == 0)
                 {
-
                     return new ReponseModel
                     {
                         StatusCode = 404,
                         Message = "There are no customers yet!",
+                        Data = null
                     };
                 }
 
@@ -79,15 +93,16 @@ namespace Terrasoft.Configuration
                 {
                     StatusCode = 200,
                     Message = "Success",
-                    Data = JsonSerializer.Serialize(customers),
+                    Data = customers
                 };
             }
             catch (Exception ex)
             {
                 return new ReponseModel
                 {
-                    StatusCode = 404,
+                    StatusCode = 500,
                     Message = ex.Message,
+                    Data = null
                 };
             }
         }
