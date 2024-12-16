@@ -70,24 +70,24 @@ namespace Terrasoft.Configuration
 
                     return new ReponseModel
                     {
-                        StatusCode = 404;
-                        Message = "There are no customers yet!";
+                        StatusCode = 404,
+                        Message = "There are no customers yet!",
                     };
                 }
 
                 return new ReponseModel
                 {
-                    StatusCode = 200;
-                    Message = "Success";
-                    Data = JsonSerializer.Serialize(customers);
-                }
+                    StatusCode = 200,
+                    Message = "Success",
+                    Data = JsonSerializer.Serialize(customers),
+                };
             }
             catch (Exception ex)
             {
                 return new ReponseModel
                 {
-                    StatusCode = 404;
-                    Message = ex.Message;
+                    StatusCode = 404,
+                    Message = ex.Message,
                 };
             }
         }
