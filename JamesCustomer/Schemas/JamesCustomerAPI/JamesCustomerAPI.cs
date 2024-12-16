@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Net;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.ServiceModel.Activation;
-using System.Runtime.Serialization;
-using Terrasoft.Core.DB;
-using Terrasoft.Web.Common;
-using Terrasoft.Core;
 using System.Data;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
+using System.ServiceModel;
+using System.ServiceModel.Activation;
+using System.ServiceModel.Web;
+using Terrasoft.Core.DB;
+using Terrasoft.Core;
+using Terrasoft.Web.Common;
 
 namespace Terrasoft.Configuration
 {
@@ -55,16 +55,16 @@ namespace Terrasoft.Configuration
             {
                 var customers = new List<CustomerModel>();
 
-                var selectCustomers = new Select(UserConnection)
+                Select selectCustomers = new Select(UserConnection)
                     .Column("Id")
                     .Column("JamesFullName")
                     .Column("JamesEmail")
                     .Column("JamesPINFL")
                     .From("JamesCustomer") as Select;
 
-                using (var dbExecutor = UserConnection.EnsureDBConnection())
+                using (DBExecutor dbExecutor = UserConnection.EnsureDBConnection())
                 {
-                    using (var reader = selectCustomers.ExecuteReader(dbExecutor))
+                    using (IDataReader reader = selectCustomers.ExecuteReader(dbExecutor))
                     {
                         while (reader.Read())
                         {
@@ -89,11 +89,15 @@ namespace Terrasoft.Configuration
                     };
                 }
 
+                // Explicitly serialize to JSON-friendly object
+                var serializedData = SerializeToJson(customers);
+                var jsonData = DeserializeFromJson<List<CustomerModel>>(serializedData);
+
                 return new ReponseModel
                 {
                     StatusCode = 200,
                     Message = "Success",
-                    Data = customers
+                    Data = jsonData // JSON-friendly format
                 };
             }
             catch (Exception ex)
@@ -104,6 +108,29 @@ namespace Terrasoft.Configuration
                     Message = ex.Message,
                     Data = null
                 };
+            }
+        }
+
+        private string SerializeToJson(object obj)
+        {
+            using (var memoryStream = new MemoryStream())
+            {
+                var serializer = new DataContractJsonSerializer(obj.GetType());
+                serializer.WriteObject(memoryStream, obj);
+                memoryStream.Position = 0;
+                using (var reader = new StreamReader(memoryStream))
+                {
+                    return reader.ReadToEnd();
+                }
+            }
+        }
+
+        private T DeserializeFromJson<T>(string json)
+        {
+            using (var memoryStream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(json)))
+            {
+                var serializer = new DataContractJsonSerializer(typeof(T));
+                return (T)serializer.ReadObject(memoryStream);
             }
         }
     }

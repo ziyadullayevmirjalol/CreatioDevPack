@@ -8,6 +8,7 @@
       "Name": "BaseEntity"
     },
     "ManagerName": "EntitySchemaManager",
-    "Caption": "Customer"
+    "Caption": "Customer",
+    "DependsOn": []
   }
 }
