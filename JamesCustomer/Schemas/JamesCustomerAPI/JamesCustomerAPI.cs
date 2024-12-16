@@ -54,7 +54,7 @@ namespace Terrasoft.Configuration
         {
             try
             {
-                var customers = new ICollection<CustomerModel>();
+                var customers = new List<CustomerModel>();
 
                 var selectCustomers = new Select(UserConnection)
                     .Column("Id")
@@ -90,11 +90,13 @@ namespace Terrasoft.Configuration
                     };
                 }
 
+                string jsonData = SerializeToJson(customers);
+
                 return new ReponseModel
                 {
                     StatusCode = 200,
                     Message = "Success",
-                    Data = customers
+                    Data = jsonData
                 };
             }
             catch (Exception ex)
@@ -105,6 +107,20 @@ namespace Terrasoft.Configuration
                     Message = ex.Message,
                     Data = null
                 };
+            }
+        }
+
+        private string SerializeToJson(object obj)
+        {
+            using (var memoryStream = new MemoryStream())
+            {
+                var serializer = new DataContractJsonSerializer(obj.GetType());
+                serializer.WriteObject(memoryStream, obj);
+                memoryStream.Position = 0;
+                using (var reader = new StreamReader(memoryStream))
+                {
+                    return reader.ReadToEnd();
+                }
             }
         }
     }
