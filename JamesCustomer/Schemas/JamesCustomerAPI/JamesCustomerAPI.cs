@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -11,6 +12,14 @@ using System.Data;
 
 namespace Terrasoft.Configuration
 {
+    public class CustomerModel
+    {
+        public string Id { get; set; }
+        public string FullName { get; set; }
+        public string Email { get; set; }
+        public string PINFL { get; set; }
+    }
+
     [ServiceContract]
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
     public class CustomerAPI : BaseService, IReadOnlySessionState
@@ -22,7 +31,7 @@ namespace Terrasoft.Configuration
         {
             try
             {
-                var customers = new List<object>();
+                var customers = new List<CustomerModel>();
 
                 // SQL Query to fetch customer details
                 Select selectCustomers = new Select(UserConnection)
@@ -39,9 +48,9 @@ namespace Terrasoft.Configuration
                     {
                         while (reader.Read())
                         {
-                            customers.Add(new
+                            customers.Add(new CustomerModel
                             {
-                                Id = reader.GetColumnValue<Guid>("Id"),
+                                Id = reader.GetColumnValue<Guid>("Id").ToString(),
                                 FullName = reader.GetColumnValue<string>("JamesFullName"),
                                 Email = reader.GetColumnValue<string>("JamesEmail"),
                                 PINFL = reader.GetColumnValue<string>("JamesPINFL")
@@ -55,7 +64,7 @@ namespace Terrasoft.Configuration
                 {
                     var noCustomersResponse = new HttpResponseMessage(HttpStatusCode.BadRequest)
                     {
-                        Content = new StringContent("There are no customers yet!")
+                        Content = new StringContent("There are no customers yet!", System.Text.Encoding.UTF8, "application/json")
                     };
                     noCustomersResponse.Headers.Add("X-Error-Message", "No data available");
                     return noCustomersResponse;
@@ -64,9 +73,7 @@ namespace Terrasoft.Configuration
                 // If customers found, return OK response
                 var customersResponse = new HttpResponseMessage(HttpStatusCode.OK)
                 {
-                    Content = new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(customers),
-                                                System.Text.Encoding.UTF8,
-                                                "application/json")
+                    Content = new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(customers), System.Text.Encoding.UTF8, "application/json")
                 };
                 return customersResponse;
             }
@@ -75,7 +82,7 @@ namespace Terrasoft.Configuration
                 // Return InternalServerError response on exception
                 var errorResponse = new HttpResponseMessage(HttpStatusCode.InternalServerError)
                 {
-                    Content = new StringContent($"An error occurred: {ex.Message}")
+                    Content = new StringContent($"An error occurred: {ex.Message}", System.Text.Encoding.UTF8, "application/json")
                 };
                 errorResponse.Headers.Add("X-Error-Message", ex.Message);
                 return errorResponse;
