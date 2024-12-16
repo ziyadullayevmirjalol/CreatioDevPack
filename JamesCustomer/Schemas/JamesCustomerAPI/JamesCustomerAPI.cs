@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Net;
-using System.Net.Http;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.ServiceModel.Activation;
 using Terrasoft.Core.DB;
 using Terrasoft.Web.Common;
 using Terrasoft.Core;
-using System.Data;
 
 namespace Terrasoft.Configuration
 {
@@ -27,13 +26,12 @@ namespace Terrasoft.Configuration
         [OperationContract]
         [WebInvoke(Method = "GET", BodyStyle = WebMessageBodyStyle.Wrapped,
             RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public HttpResponseMessage GetAllCustomers()
+        public Stream GetAllCustomers()
         {
             try
             {
                 var customers = new List<CustomerModel>();
 
-                // SQL Query to fetch customer details
                 Select selectCustomers = new Select(UserConnection)
                     .Column("Id")
                     .Column("JamesFullName")
@@ -41,7 +39,6 @@ namespace Terrasoft.Configuration
                     .Column("JamesPINFL")
                     .From("JamesCustomer") as Select;
 
-                // Execute query
                 using (DBExecutor dbExecutor = UserConnection.EnsureDBConnection())
                 {
                     using (IDataReader reader = selectCustomers.ExecuteReader(dbExecutor))
@@ -59,33 +56,24 @@ namespace Terrasoft.Configuration
                     }
                 }
 
-                // If no customers found, return BadRequest response
                 if (customers.Count == 0)
                 {
-                    var noCustomersResponse = new HttpResponseMessage(HttpStatusCode.BadRequest)
-                    {
-                        Content = new StringContent("There are no customers yet!", System.Text.Encoding.UTF8, "application/json")
-                    };
-                    noCustomersResponse.Headers.Add("X-Error-Message", "No data available");
-                    return noCustomersResponse;
+                    WebOperationContext.Current.OutgoingResponse.StatusCode = HttpStatusCode.BadRequest;
+                    WebOperationContext.Current.OutgoingResponse.ContentType = "application/json";
+                    WebOperationContext.Current.OutgoingResponse.Headers.Add("X-Error-Message", "No data available");
+                    return new MemoryStream(System.Text.Encoding.UTF8.GetBytes("{\"error\":\"There are no customers yet!\"}"));
                 }
 
-                // If customers found, return OK response
-                var customersResponse = new HttpResponseMessage(HttpStatusCode.OK)
-                {
-                    Content = new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(customers), System.Text.Encoding.UTF8, "application/json")
-                };
-                return customersResponse;
+                WebOperationContext.Current.OutgoingResponse.StatusCode = HttpStatusCode.OK;
+                WebOperationContext.Current.OutgoingResponse.ContentType = "application/json";
+                return new MemoryStream(System.Text.Encoding.UTF8.GetBytes(Newtonsoft.Json.JsonConvert.SerializeObject(customers)));
             }
             catch (Exception ex)
             {
-                // Return InternalServerError response on exception
-                var errorResponse = new HttpResponseMessage(HttpStatusCode.InternalServerError)
-                {
-                    Content = new StringContent($"An error occurred: {ex.Message}", System.Text.Encoding.UTF8, "application/json")
-                };
-                errorResponse.Headers.Add("X-Error-Message", ex.Message);
-                return errorResponse;
+                WebOperationContext.Current.OutgoingResponse.StatusCode = HttpStatusCode.InternalServerError;
+                WebOperationContext.Current.OutgoingResponse.ContentType = "application/json";
+                WebOperationContext.Current.OutgoingResponse.Headers.Add("X-Error-Message", ex.Message);
+                return new MemoryStream(System.Text.Encoding.UTF8.GetBytes($"{{\"error\":\"An error occurred: {ex.Message}\"}}"));
             }
         }
     }
