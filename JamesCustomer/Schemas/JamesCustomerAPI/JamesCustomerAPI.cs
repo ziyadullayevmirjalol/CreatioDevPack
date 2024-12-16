@@ -14,6 +14,8 @@ using System.Data;
 
 namespace Terrasoft.Configuration
 {
+
+    #region Data Models
     [DataContract]
     public class ReponseModel
     {
@@ -41,12 +43,22 @@ namespace Terrasoft.Configuration
 
         [DataMember]
         public string PINFL { get; set; }
+
+        [DataMember]
+        public string Phone { get; set; }
+
+        [DataMember]
+        public string DateOfBirth { get; set; }
+
     }
+
+    #endregion
 
     [ServiceContract]
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
     public class CustomerAPI : BaseService
     {
+
         [OperationContract]
         [WebInvoke(Method = "GET", BodyStyle = WebMessageBodyStyle.Wrapped,
             RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
@@ -110,18 +122,170 @@ namespace Terrasoft.Configuration
             }
         }
 
-        private string SerializeToJson(object obj)
+        [OperationContract]
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.Wrapped,
+            RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+
+        public ReponseModel RegisterCustomer(
+            string FullName,
+            string Email,
+            string Phone,
+            string PINFL,
+            DateTime DateOfBirth)
         {
-            using (var memoryStream = new MemoryStream())
+            try
             {
-                var serializer = new DataContractJsonSerializer(obj.GetType());
-                serializer.WriteObject(memoryStream, obj);
-                memoryStream.Position = 0;
-                using (var reader = new StreamReader(memoryStream))
+                if (!ValidateFullName(customer.FullName))
                 {
-                    return reader.ReadToEnd();
+                    return new ReponseModel
+                    {
+                        StatusCode = 400,
+                        Message = "Name must be at least 3 characters long and cannot contain numbers or special characters",
+                        Data = null
+                    };
                 }
+
+                if (!ValidateEmail(customer.Email))
+                {
+                    return new ReponseModel
+                    {
+                        StatusCode = 400,
+                        Message = "Enter a valid email address!",
+                        Data = null
+                    }
+                }
+                if (!ValidatePhone(customer.Phone))
+                {
+                    return new ReponseModel
+                    {
+                        StatusCode = 400,
+                        Message = "Enter a valid phone number!",
+                        Data = null
+                    };
+                }
+                if (!ValidatePINFL(customer.PINFL))
+                {
+                    return new ReponseModel
+                    {
+                        StatusCode = 400,
+                        Message = "PINFL must be exactly 14 digits.",
+                        Data = null
+                    };
+                }
+                if (!ValidateDateOfBirth(customer.DateOfBirth))
+                {
+                    return new ReponseModel
+                    {
+                        StatusCode = 400,
+                        Message = "Date of Birth must be in the format yyyy-MM-dd and at least 18 years ago.",
+                        Data = null
+                    };
+                }
+
+
+
+                // Your logic to register the customer goes here.
+
+                return new ReponseModel
+                {
+                    StatusCode = 200,
+                    Message = "Customer registered successfully.",
+                    Data = SerializeToJson(customer);
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ReponseModel
+                {
+                    StatusCode = 500,
+                    Message = ex.Message,
+                    Data = null
+                };
             }
         }
+
+
+        #region Private Methods
+        private string SerializeToJson(object obj)
+        {
+            try
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    var serializer = new DataContractJsonSerializer(obj.GetType());
+
+                    serializer.WriteObject(memoryStream, obj);
+
+                    memoryStream.Position = 0;
+
+                    using (var reader = new StreamReader(memoryStream))
+                    {
+                        return reader.ReadToEnd();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return $"Error: {ex.Message}";
+            }
+        }
+
+        private bool ValidateFullName(string fullName)
+        {
+            if (string.IsNullOrEmpty(fullName) || fullName.Length < 3)
+            {
+                return false;
+            }
+
+            return fullName.All(c => char.IsLetter(c) || c == ' ');
+        }
+        private bool ValidateEmail(string email)
+        {
+            if (string.IsNullOrEmpty(email))
+            {
+                return false;
+            }
+
+            var emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(email, emailPattern);
+        }
+        private bool ValidatePhone(string phone)
+        {
+            if (string.IsNullOrEmpty(phone))
+            {
+                return false;
+            }
+
+            if (phone.Length < 10 || phone.Length > 15)
+            {
+                return false;
+            }
+
+            return phone.All(c => char.IsDigit(c) || c == '+' || c == '-');
+        }
+        private bool ValidateDateOfBirth(string dateOfBirth)
+        {
+            if (!DateTime.TryParseExact(dateOfBirth, "yyyy-MM-dd", null, System.Globalization.DateTimeStyles.None, out DateTime parsedDate))
+            {
+                return false;
+            }
+
+            DateTime today = DateTime.Today;
+            DateTime minimumDate = today.AddYears(-18);
+
+            return parsedDate <= minimumDate;
+        }
+        private bool ValidatePINFL(string pinfl)
+        {
+            if (string.IsNullOrEmpty(pinfl))
+            {
+                return false;
+            }
+
+            return pinfl.Length == 14 && pinfl.All(char.IsDigit);
+        }
+
+
+        #endregion
     }
 }
