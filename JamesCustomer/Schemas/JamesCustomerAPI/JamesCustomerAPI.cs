@@ -13,6 +13,13 @@ using System.Text.Json;
 
 namespace Terrasoft.Configuration
 {
+
+    public class ReponseModel
+    {
+        public int StatusCode { get; set; }
+        public string Message { get; set; }
+        public object Data { get; set; }
+    }
     public class CustomerModel
     {
         public string Id { get; set; }
@@ -34,7 +41,6 @@ namespace Terrasoft.Configuration
             {
                 var customers = new List<CustomerModel>();
 
-                // SQL Query to fetch customer details
                 Select selectCustomers = new Select(UserConnection)
                     .Column("Id")
                     .Column("JamesFullName")
@@ -42,7 +48,6 @@ namespace Terrasoft.Configuration
                     .Column("JamesPINFL")
                     .From("JamesCustomer") as Select;
 
-                // Execute query
                 using (DBExecutor dbExecutor = UserConnection.EnsureDBConnection())
                 {
                     using (IDataReader reader = selectCustomers.ExecuteReader(dbExecutor))
@@ -60,33 +65,30 @@ namespace Terrasoft.Configuration
                     }
                 }
 
-                // If no customers found, return BadRequest response
                 if (customers.Count == 0)
                 {
-                    var noCustomersResponse = new HttpResponseMessage(HttpStatusCode.BadRequest)
+
+                    return new ReponseModel
                     {
-                        Content = new StringContent("{\"message\":\"There are no customers yet!\"}", System.Text.Encoding.UTF8, "application/json")
+                        StatusCode = 404;
+                        Message = "There are no customers yet!";
                     };
-                    noCustomersResponse.Headers.Add("X-Error-Message", "No data available");
-                    return noCustomersResponse;
                 }
 
-                // If customers found, return OK response with JSON data
-                var customersResponse = new HttpResponseMessage(HttpStatusCode.OK)
+                return new ReponseModel
                 {
-                    Content = new StringContent(JsonSerializer.Serialize(customers), System.Text.Encoding.UTF8, "application/json")
-                };
-                return customersResponse;
+                    StatusCode = 200;
+                    Message = "Success";
+                    Data = JsonSerializer.Serialize(customers);
+                }
             }
             catch (Exception ex)
             {
-                // Return InternalServerError response on exception
-                var errorResponse = new HttpResponseMessage(HttpStatusCode.InternalServerError)
+                return new ReponseModel
                 {
-                    Content = new StringContent($"{{\"error\":\"An error occurred: {ex.Message}\"}}", System.Text.Encoding.UTF8, "application/json")
+                    StatusCode = 404;
+                    Message = ex.Message;
                 };
-                errorResponse.Headers.Add("X-Error-Message", ex.Message);
-                return errorResponse;
             }
         }
     }
