@@ -135,7 +135,7 @@ namespace Terrasoft.Configuration
         {
             try
             {
-                if (!ValidateFullName(customer.FullName))
+                if (!ValidateFullName(FullName))
                 {
                     return new ReponseModel
                     {
@@ -145,16 +145,16 @@ namespace Terrasoft.Configuration
                     };
                 }
 
-                if (!ValidateEmail(customer.Email))
+                if (!ValidateEmail(Email))
                 {
                     return new ReponseModel
                     {
                         StatusCode = 400,
                         Message = "Enter a valid email address!",
                         Data = null
-                    }
+                    };
                 }
-                if (!ValidatePhone(customer.Phone))
+                if (!ValidatePhone(Phone))
                 {
                     return new ReponseModel
                     {
@@ -163,7 +163,7 @@ namespace Terrasoft.Configuration
                         Data = null
                     };
                 }
-                if (!ValidatePINFL(customer.PINFL))
+                if (!ValidatePINFL(PINFL))
                 {
                     return new ReponseModel
                     {
@@ -172,7 +172,7 @@ namespace Terrasoft.Configuration
                         Data = null
                     };
                 }
-                if (!ValidateDateOfBirth(customer.DateOfBirth))
+                if (!ValidateDateOfBirth(DateOfBirth))
                 {
                     return new ReponseModel
                     {
@@ -190,7 +190,7 @@ namespace Terrasoft.Configuration
                 {
                     StatusCode = 200,
                     Message = "Customer registered successfully.",
-                    Data = SerializeToJson(customer);
+                    Data = "complete",
                 };
             }
             catch (Exception ex)
