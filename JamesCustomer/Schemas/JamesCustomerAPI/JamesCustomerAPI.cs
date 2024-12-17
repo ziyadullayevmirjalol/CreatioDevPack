@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Linq;
+using System.Web.SessionState;
 using System.Text.RegularExpressions;
 using System.ServiceModel;
 using System.ServiceModel.Web;
@@ -57,7 +58,7 @@ namespace Terrasoft.Configuration
 
     [ServiceContract]
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
-    public class CustomerAPI : BaseService
+    public class CustomerAPI : BaseService, IReadOnlySessionState
     {
 
         [OperationContract]
@@ -73,6 +74,8 @@ namespace Terrasoft.Configuration
                     .Column("Id")
                     .Column("JamesFullName")
                     .Column("JamesEmail")
+                    .Column("JamesPhone")
+                    .Column("JamesDateOfBirth")
                     .Column("JamesPINFL")
                     .From("JamesCustomer") as Select;
 
@@ -87,9 +90,12 @@ namespace Terrasoft.Configuration
                                 Id = reader.GetGuid(reader.GetOrdinal("Id")).ToString(),
                                 FullName = reader.GetString(reader.GetOrdinal("JamesFullName")),
                                 Email = reader.GetString(reader.GetOrdinal("JamesEmail")),
-                                PINFL = reader.GetString(reader.GetOrdinal("JamesPINFL"))
+                                PINFL = reader.GetString(reader.GetOrdinal("JamesPINFL")),
+                                Phone = reader.GetString(reader.GetOrdinal("JamesPhone")),
+                                DateOfBirth = reader.GetDateTime(reader.GetOrdinal("JamesDateOfBirth")).ToString("yyyy-MM-dd")
                             });
                         }
+
                     }
                 }
 
@@ -126,7 +132,6 @@ namespace Terrasoft.Configuration
         [OperationContract]
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.Wrapped,
             RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-
         public ReponseModel RegisterCustomer(
             string FullName,
             string Email,
