@@ -189,6 +189,77 @@ namespace Terrasoft.Configuration
             }
         }
 
+        [OperationContract]
+        [WebInvoke(Method = "GET", BodyStyle = WebMessageBodyStyle.Wrapped,
+            RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public ReponseModel DeleteCard(string cardId)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(cardId) || !Guid.TryParse(cardId, out Guid validCardId))
+                {
+                    return new ReponseModel
+                    {
+                        StatusCode = 400,
+                        Message = "Invalid card ID format!",
+                        Data = null
+                    };
+                }
+
+                var selectCard = new Select(UserConnection)
+                    .Column("Id")
+                    .From("JamesCard")
+                    .Where("Id").IsEqual(Column.Parameter(validCardId)) as Select;
+
+                bool cardExists = false;
+
+                using (var dbExecutor = UserConnection.EnsureDBConnection())
+                {
+                    using (var reader = selectCard.ExecuteReader(dbExecutor))
+                    {
+                        if (reader.Read())
+                        {
+                            cardExists = true;
+                        }
+                    }
+                }
+
+                if (!cardExists)
+                {
+                    return new ReponseModel
+                    {
+                        StatusCode = 404,
+                        Message = "Card doesn't exist!",
+                        Data = null
+                    };
+                }
+
+                var deleteCard = new Delete(UserConnection)
+                    .From("JamesCard")
+                    .Where("Id").IsEqual(Column.Parameter(validCardId)) as Delete;
+
+                using (var dbExecutor = UserConnection.EnsureDBConnection())
+                {
+                    deleteCard.Execute(dbExecutor);
+                }
+
+                return new ReponseModel
+                {
+                    StatusCode = 200,
+                    Message = "Card successfully deleted!",
+                    Data = null
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ReponseModel
+                {
+                    StatusCode = 500,
+                    Message = ex.Message,
+                    Data = null
+                };
+            }
+        }
 
 
         [OperationContract]

@@ -207,6 +207,77 @@ namespace Terrasoft.Configuration
             }
         }
 
+        [OperationContract]
+        [WebInvoke(Method = "GET", BodyStyle = WebMessageBodyStyle.Wrapped,
+            RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public ReponseModel DeleteCustomer(string customerId)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(customerId) || !Guid.TryParse(customerId, out Guid validCustomerId))
+                {
+                    return new ReponseModel
+                    {
+                        StatusCode = 400,
+                        Message = "Invalid customer ID format!",
+                        Data = null
+                    };
+                }
+
+                var selectCustomer = new Select(UserConnection)
+                    .Column("Id")
+                    .From("JamesCustomer")
+                    .Where("Id").IsEqual(Column.Parameter(validCustomerId)) as Select;
+
+                bool customerExists = false;
+
+                using (var dbExecutor = UserConnection.EnsureDBConnection())
+                {
+                    using (var reader = selectCustomer.ExecuteReader(dbExecutor))
+                    {
+                        if (reader.Read())
+                        {
+                            customerExists = true;
+                        }
+                    }
+                }
+
+                if (!customerExists)
+                {
+                    return new ReponseModel
+                    {
+                        StatusCode = 404,
+                        Message = "Customer not found!",
+                        Data = null
+                    };
+                }
+
+                var deleteCustomer = new Delete(UserConnection)
+                    .From("JamesCustomer")
+                    .Where("Id").IsEqual(Column.Parameter(validCustomerId)) as Delete;
+
+                using (var dbExecutor = UserConnection.EnsureDBConnection())
+                {
+                    deleteCustomer.Execute(dbExecutor);
+                }
+
+                return new ReponseModel
+                {
+                    StatusCode = 200,
+                    Message = "Customer successfully deleted!",
+                    Data = null
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ReponseModel
+                {
+                    StatusCode = 500,
+                    Message = ex.Message,
+                    Data = null
+                };
+            }
+        }
 
 
         [OperationContract]
