@@ -129,60 +129,60 @@ namespace Terrasoft.Configuration
             RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
 
         public ReponseModel RegisterCustomer(
-            string FullName,
+            /*string FullName,
             string Email,
             string Phone,
             string PINFL,
-            DateTime DateOfBirth)
+            DateTime DateOfBirth*/)
         {
             try
             {
-                if (!ValidateFullName(FullName))
-                {
-                    return new ReponseModel
-                    {
-                        StatusCode = 400,
-                        Message = "Name must be at least 3 characters long and cannot contain numbers or special characters",
-                        Data = null
-                    };
-                }
+                // if (!ValidateFullName(FullName))
+                // {
+                //     return new ReponseModel
+                //     {
+                //         StatusCode = 400,
+                //         Message = "Name must be at least 3 characters long and cannot contain numbers or special characters",
+                //         Data = null
+                //     };
+                // }
 
-                if (!ValidateEmail(Email))
-                {
-                    return new ReponseModel
-                    {
-                        StatusCode = 400,
-                        Message = "Enter a valid email address!",
-                        Data = null
-                    };
-                }
-                if (!ValidatePhone(Phone))
-                {
-                    return new ReponseModel
-                    {
-                        StatusCode = 400,
-                        Message = "Enter a valid phone number!",
-                        Data = null
-                    };
-                }
-                if (!ValidatePINFL(PINFL))
-                {
-                    return new ReponseModel
-                    {
-                        StatusCode = 400,
-                        Message = "PINFL must be exactly 14 digits.",
-                        Data = null
-                    };
-                }
-                if (!ValidateDateOfBirth(DateOfBirth))
-                {
-                    return new ReponseModel
-                    {
-                        StatusCode = 400,
-                        Message = "Date of Birth must be at least 18 years ago.",
-                        Data = null
-                    };
-                }
+                // if (!ValidateEmail(Email))
+                // {
+                //     return new ReponseModel
+                //     {
+                //         StatusCode = 400,
+                //         Message = "Enter a valid email address!",
+                //         Data = null
+                //     };
+                // }
+                // if (!ValidatePhone(Phone))
+                // {
+                //     return new ReponseModel
+                //     {
+                //         StatusCode = 400,
+                //         Message = "Enter a valid phone number!",
+                //         Data = null
+                //     };
+                // }
+                // if (!ValidatePINFL(PINFL))
+                // {
+                //     return new ReponseModel
+                //     {
+                //         StatusCode = 400,
+                //         Message = "PINFL must be exactly 14 digits.",
+                //         Data = null
+                //     };
+                // }
+                // if (!ValidateDateOfBirth(DateOfBirth))
+                // {
+                //     return new ReponseModel
+                //     {
+                //         StatusCode = 400,
+                //         Message = "Date of Birth must be at least 18 years ago.",
+                //         Data = null
+                //     };
+                // }
 
 
 
