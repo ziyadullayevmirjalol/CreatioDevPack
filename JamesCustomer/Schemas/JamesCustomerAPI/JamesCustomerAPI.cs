@@ -130,6 +130,86 @@ namespace Terrasoft.Configuration
         }
 
         [OperationContract]
+        [WebInvoke(Method = "GET", BodyStyle = WebMessageBodyStyle.Wrapped,
+            RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public ReponseModel GetCustomerById(string customerId)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(customerId) || !Guid.TryParse(customerId, out Guid validCustomerId))
+                {
+                    return new ReponseModel
+                    {
+                        StatusCode = 400,
+                        Message = "Invalid customer ID format!",
+                        Data = null
+                    };
+                }
+
+                CustomerModel customer = null;
+
+                var selectCustomer = new Select(UserConnection)
+                    .Column("Id")
+                    .Column("JamesFullName")
+                    .Column("JamesEmail")
+                    .Column("JamesPhone")
+                    .Column("JamesDateOfBirth")
+                    .Column("JamesPINFL")
+                    .From("JamesCustomer")
+                    .Where("Id").IsEqual(Column.Parameter(validCustomerId)) as Select;
+
+                using (var dbExecutor = UserConnection.EnsureDBConnection())
+                {
+                    using (var reader = selectCustomer.ExecuteReader(dbExecutor))
+                    {
+                        if (reader.Read())
+                        {
+                            customer = new CustomerModel
+                            {
+                                Id = reader.GetGuid(reader.GetOrdinal("Id")).ToString(),
+                                FullName = reader.GetString(reader.GetOrdinal("JamesFullName")),
+                                Email = reader.GetString(reader.GetOrdinal("JamesEmail")),
+                                PINFL = reader.GetString(reader.GetOrdinal("JamesPINFL")),
+                                Phone = reader.GetString(reader.GetOrdinal("JamesPhone")),
+                                DateOfBirth = reader.GetDateTime(reader.GetOrdinal("JamesDateOfBirth")).ToString("yyyy-MM-dd")
+                            };
+                        }
+                    }
+                }
+
+                if (customer == null)
+                {
+                    return new ReponseModel
+                    {
+                        StatusCode = 404,
+                        Message = "Customer not found!",
+                        Data = null
+                    };
+                }
+
+                string jsonData = SerializeToJson(customer);
+
+                return new ReponseModel
+                {
+                    StatusCode = 200,
+                    Message = "Success",
+                    Data = jsonData
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ReponseModel
+                {
+                    StatusCode = 500,
+                    Message = ex.Message,
+                    Data = null
+                };
+            }
+        }
+
+
+
+        [OperationContract]
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.Wrapped,
             RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         public ReponseModel RegisterCustomer(
