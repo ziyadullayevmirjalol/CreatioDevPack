@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -30,6 +30,8 @@ namespace Terrasoft.Configuration
         [DataMember]
         public object Data { get; set; }
     }
+
+    [DataContract]
     public class CustomerModel
     {
         [DataMember]
@@ -123,7 +125,7 @@ namespace Terrasoft.Configuration
         }
 
         [OperationContract]
-        [WebInvoke(Method = "GET", BodyStyle = WebMessageBodyStyle.Wrapped,
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.Wrapped,
             RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
 
         public ReponseModel RegisterCustomer(
@@ -282,3 +284,4 @@ namespace Terrasoft.Configuration
         #endregion
     }
 }
+
