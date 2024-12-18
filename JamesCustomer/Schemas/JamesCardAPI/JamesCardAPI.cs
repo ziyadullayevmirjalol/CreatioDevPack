@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Linq;
+using System.Globalization;
 using System.Web.SessionState;
 using System.Text.RegularExpressions;
 using System.ServiceModel;
@@ -36,6 +37,8 @@ namespace Terrasoft.Configuration
 
         [DataMember]
         public string CustomerPINFL { get; set; }
+        [DataMember]
+        public string CustomerId { get; set; }
     }
     #endregion
 
@@ -261,15 +264,278 @@ namespace Terrasoft.Configuration
             }
         }
 
-
         [OperationContract]
-        [WebInvoke(Method = "PUT", BodyStyle = WebMessageBodyStyle.Wrapped,
+        [WebInvoke(Method = "GET", BodyStyle = WebMessageBodyStyle.Wrapped,
             RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public string CreateCard()
+        public ReponseModel CreateCard(
+            string CardNumber,
+            string CardType,
+            string ExpiryDate,
+            string CustomerPINFL)
         {
-            return "success!";
+            try
+            {
+                if (!ValidatePINFL(CustomerPINFL))
+                {
+                    return new ReponseModel
+                    {
+                        StatusCode = 400,
+                        Message = "Invalid PINFL. Please provide a valid 14-digit PINFL.",
+                        Data = null
+                    };
+                }
+
+                if (!ValidateCardNumber(CardNumber))
+                {
+                    return new ReponseModel
+                    {
+                        StatusCode = 400,
+                        Message = "Enter a valid card number in the format 1234-5678-9876-5432.",
+                        Data = null
+                    };
+                }
+
+                if (!ValidateCardType(CardType))
+                {
+                    return new ReponseModel
+                    {
+                        StatusCode = 400,
+                        Message = "Invalid card type. Please provide a valid card type.",
+                        Data = null
+                    };
+                }
+
+                if (!DateTime.TryParseExact(ExpiryDate, "yyyy-MM", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedExpiryDate))
+                {
+                    return new ReponseModel
+                    {
+                        StatusCode = 400,
+                        Message = "Invalid expiry date format. Please use yyyy-MM.",
+                        Data = null
+                    };
+                }
+
+                if (parsedExpiryDate <= DateTime.UtcNow)
+                {
+                    return new ReponseModel
+                    {
+                        StatusCode = 400,
+                        Message = "Expiry date must be in the future.",
+                        Data = null
+                    };
+                }
+
+                using (var dbExecutor = UserConnection.EnsureDBConnection())
+                {
+                    var selectCardType = new Select(UserConnection)
+                        .Column("Id")
+                        .Column("Name")
+                        .From("JamesCardType")
+                        .Where("Name").IsEqual(Column.Parameter(CardType)) as Select;
+
+                    Guid cardTypeId;
+                    string cardTypeName = null;
+                    using (var reader = selectCardType.ExecuteReader(dbExecutor))
+                    {
+                        if (!reader.Read())
+                        {
+                            return new ReponseModel
+                            {
+                                StatusCode = 404,
+                                Message = "Card type does not exist. Please provide a valid card type.",
+                                Data = null
+                            };
+                        }
+
+                        cardTypeId = reader.GetGuid(reader.GetOrdinal("Id"));
+                        cardTypeName = reader.GetString(reader.GetOrdinal("Name"));
+                    }
+
+                    var selectCustomer = new Select(UserConnection)
+                        .Column("Id")
+                        .From("JamesCustomer")
+                        .Where("JamesPINFL").IsEqual(Column.Parameter(CustomerPINFL)) as Select;
+
+                    Guid customerId;
+                    using (var reader = selectCustomer.ExecuteReader(dbExecutor))
+                    {
+                        if (!reader.Read())
+                        {
+                            return new ReponseModel
+                            {
+                                StatusCode = 404,
+                                Message = "Customer with the provided PINFL does not exist. This card must be associated with a valid customer PINFL.",
+                                Data = null
+                            };
+                        }
+
+                        customerId = reader.GetGuid(reader.GetOrdinal("Id"));
+                    }
+
+                    Guid cardId = Guid.NewGuid();
+
+                    var insertCard = new Insert(UserConnection)
+                        .Into("JamesCard")
+                        .Set("Id", Column.Parameter(cardId))
+                        .Set("JamesCardNumber", Column.Parameter(CardNumber))
+                        .Set("JamesCardTypeId", Column.Parameter(cardTypeId))
+                        .Set("JamesExpiryDate", Column.Parameter(parsedExpiryDate))
+                        .Set("JamesCustomerId", Column.Parameter(customerId))
+                        .Set("CreatedOn", Column.Parameter(DateTime.UtcNow))
+                        .Set("ModifiedOn", Column.Parameter(DateTime.UtcNow)) as Insert;
+
+                    insertCard.Execute(dbExecutor);
+
+                    return new ReponseModel
+                    {
+                        StatusCode = 200,
+                        Message = "Card created successfully.",
+                        Data = "success"
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ReponseModel
+                {
+                    StatusCode = 500,
+                    Message = ex.Message,
+                    Data = null
+                };
+            }
         }
 
+        [OperationContract]
+        [WebInvoke(Method = "GET", BodyStyle = WebMessageBodyStyle.Wrapped,
+            RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public ReponseModel ModifyCard(
+            string cardId,
+            string CardNumber,
+            string CardType,
+            string ExpiryDate)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(cardId))
+                {
+                    return new ReponseModel
+                    {
+                        StatusCode = 400,
+                        Message = "Card ID cannot be null or empty.",
+                        Data = null
+                    };
+                }
+
+                if (!ValidateCardNumber(CardNumber))
+                {
+                    return new ReponseModel
+                    {
+                        StatusCode = 400,
+                        Message = "Enter a valid card number in the format 1234-5678-9876-5432.",
+                        Data = null
+                    };
+                }
+
+                if (!ValidateCardType(CardType))
+                {
+                    return new ReponseModel
+                    {
+                        StatusCode = 400,
+                        Message = "Invalid card type. Please provide a valid card type.",
+                        Data = null
+                    };
+                }
+
+                if (!DateTime.TryParseExact(ExpiryDate, "yyyy-MM", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedExpiryDate))
+                {
+                    return new ReponseModel
+                    {
+                        StatusCode = 400,
+                        Message = "Invalid expiry date format. Please use yyyy-MM.",
+                        Data = null
+                    };
+                }
+
+                if (parsedExpiryDate <= DateTime.UtcNow)
+                {
+                    return new ReponseModel
+                    {
+                        StatusCode = 400,
+                        Message = "Expiry date must be in the future.",
+                        Data = null
+                    };
+                }
+
+                using (var dbExecutor = UserConnection.EnsureDBConnection())
+                {
+                    var selectCardType = new Select(UserConnection)
+                        .Column("Id")
+                        .From("JamesCardType")
+                        .Where("Name").IsEqual(Column.Parameter(CardType)) as Select;
+
+                    Guid cardTypeId;
+                    using (var reader = selectCardType.ExecuteReader(dbExecutor))
+                    {
+                        if (!reader.Read())
+                        {
+                            return new ReponseModel
+                            {
+                                StatusCode = 404,
+                                Message = "Card type does not exist. Please provide a valid card type.",
+                                Data = null
+                            };
+                        }
+
+                        cardTypeId = reader.GetGuid(reader.GetOrdinal("Id"));
+                    }
+
+                    var selectCard = new Select(UserConnection)
+                        .Column("Id")
+                        .From("JamesCard")
+                        .Where("Id").IsEqual(Column.Parameter(cardId)) as Select;
+
+                    using (var reader = selectCard.ExecuteReader(dbExecutor))
+                    {
+                        if (!reader.Read())
+                        {
+                            return new ReponseModel
+                            {
+                                StatusCode = 404,
+                                Message = "Card with the provided ID does not exist.",
+                                Data = null
+                            };
+                        }
+                    }
+
+                    var updateCard = new Update(UserConnection)
+                        .Table("JamesCard")
+                        .Set("JamesCardNumber", Column.Parameter(CardNumber))
+                        .Set("JamesCardTypeId", Column.Parameter(cardTypeId))
+                        .Set("JamesExpiryDate", Column.Parameter(parsedExpiryDate))
+                        .Set("ModifiedOn", Column.Parameter(DateTime.UtcNow))
+                        .Where("Id").IsEqual(Column.Parameter(cardId)) as Update;
+
+                    updateCard.Execute(dbExecutor);
+
+                    return new ReponseModel
+                    {
+                        StatusCode = 200,
+                        Message = "Card updated successfully.",
+                        Data = "success"
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new ReponseModel
+                {
+                    StatusCode = 500,
+                    Message = ex.Message,
+                    Data = null
+                };
+            }
+        }
+        
         #region Private Methods
         private string SerializeToJson(object obj)
         {
@@ -294,45 +560,6 @@ namespace Terrasoft.Configuration
                 return $"Error: {ex.Message}";
             }
         }
-
-        private bool ValidateFullName(string fullName)
-        {
-            if (string.IsNullOrEmpty(fullName) || fullName.Length < 3)
-            {
-                return false;
-            }
-
-            return fullName.All(c => char.IsLetter(c) || c == ' ');
-        }
-        private bool ValidateEmail(string email)
-        {
-            if (string.IsNullOrEmpty(email))
-            {
-                return false;
-            }
-
-            var emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-            return Regex.IsMatch(email, emailPattern);
-        }
-        private bool ValidatePhone(string phone)
-        {
-            if (string.IsNullOrEmpty(phone))
-            {
-                return false;
-            }
-
-            if (phone.Length < 10 || phone.Length > 15)
-            {
-                return false;
-            }
-
-            return phone.All(c => char.IsDigit(c) || c == '+' || c == '-');
-        }
-        private bool ValidateDateOfBirth(DateTime dateOfBirth)
-        {
-            DateTime minimumDate = DateTime.Today.AddYears(-18);
-            return dateOfBirth <= minimumDate;
-        }
         private bool ValidatePINFL(string pinfl)
         {
             if (string.IsNullOrEmpty(pinfl))
@@ -342,8 +569,27 @@ namespace Terrasoft.Configuration
 
             return pinfl.Length == 14 && pinfl.All(char.IsDigit);
         }
+        private bool ValidateCardNumber(string cardNumber)
+        {
+            if (string.IsNullOrWhiteSpace(cardNumber))
+            {
+                return false;
+            }
 
+            string pattern = @"^\d{4}-\d{4}-\d{4}-\d{4}$";
+            return Regex.IsMatch(cardNumber, pattern);
+        }
+        private bool ValidateCardType(string cardType)
+        {
+            if (string.IsNullOrWhiteSpace(cardType))
+            {
+                return false;
+            }
 
+            var validCardTypes = new List<string> { "Visa", "MasterCard", "Amex" };
+
+            return validCardTypes.Any(validType => validType.Equals(cardType, StringComparison.OrdinalIgnoreCase));
+        }
         #endregion
     }
 }
