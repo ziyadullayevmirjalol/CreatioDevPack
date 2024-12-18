@@ -507,13 +507,12 @@ namespace Terrasoft.Configuration
                         }
                     }
 
-                    var updateCard = new Update(UserConnection)
-                        .Table("JamesCard")
+                    var updateCard = new Update(UserConnection, "JamesCard")
                         .Set("JamesCardNumber", Column.Parameter(CardNumber))
                         .Set("JamesCardTypeId", Column.Parameter(cardTypeId))
                         .Set("JamesExpiryDate", Column.Parameter(parsedExpiryDate))
                         .Set("ModifiedOn", Column.Parameter(DateTime.UtcNow))
-                        .Where("Id").IsEqual(Column.Parameter(cardId)) as Update;
+                        .Where("Id").IsEqual(Column.Parameter(cardId));
 
                     updateCard.Execute(dbExecutor);
 
@@ -535,7 +534,8 @@ namespace Terrasoft.Configuration
                 };
             }
         }
-        
+
+
         #region Private Methods
         private string SerializeToJson(object obj)
         {
